@@ -23,7 +23,7 @@ MonoBehaviour:
   m_MinSize: {x: 683, y: 492}
   m_MaxSize: {x: 14004, y: 14042}
   vertical: 0
-  controlID: 2733
+  controlID: 2995
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -53,15 +53,15 @@ MonoBehaviour:
   m_MaximizeOnPlay: 1
   m_Gizmos: 0
   m_Stats: 0
-  m_SelectedSizes: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
+  m_SelectedSizes: 05000000000000000000000000000000000000000000000000000000000000000000000000000000
   m_TargetDisplay: 0
   m_ZoomArea:
     m_HRangeLocked: 0
     m_VRangeLocked: 0
     m_HBaseRangeMin: -458.5
     m_HBaseRangeMax: 458.5
-    m_VBaseRangeMin: -260.5
-    m_VBaseRangeMax: 260.5
+    m_VBaseRangeMin: -257.90625
+    m_VBaseRangeMax: 257.90625
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -123,7 +123,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 492}
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
-  controlID: 2734
+  controlID: 2972
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 221}
   m_MaxSize: {x: 8006, y: 4021}
   vertical: 0
-  controlID: 2735
+  controlID: 2973
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -166,8 +166,8 @@ MonoBehaviour:
     y: 0
     width: 395
     height: 559
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 6}
   m_Panes:
   - {fileID: 6}
@@ -201,9 +201,9 @@ MonoBehaviour:
     height: 538
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: c258ffff
-    m_LastClickedID: -42814
-    m_ExpandedIDs: 4896ffff2ec0ffff7ceeffff52efffff1afcffff00000000
+    m_SelectedIDs: c058ffff
+    m_LastClickedID: -42816
+    m_ExpandedIDs: c258ffff4896ffff2ec0ffff7ceeffff52efffff1afcffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -414,8 +414,8 @@ MonoBehaviour:
     y: 559
     width: 1316
     height: 428
-  m_MinSize: {x: 232, y: 271}
-  m_MaxSize: {x: 10002, y: 10021}
+  m_MinSize: {x: 230, y: 250}
+  m_MaxSize: {x: 10000, y: 10000}
   m_ActualView: {fileID: 12}
   m_Panes:
   - {fileID: 12}
@@ -461,19 +461,19 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Standard/Characters/FirstPersonCharacter/Prefabs
+    - Assets/_Own/Scripts
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Standard/Characters/FirstPersonCharacter/Prefabs
+  - Assets/_Own/Scripts
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\MEGA - Local Folder\MAIN\Projects\Games\Unity\Soluna's Secret\Post-Jam\Git
     Repository\Soluna's Secret
   m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 270}
-    m_SelectedIDs: 6e270000
-    m_LastClickedID: 10094
+    scrollPos: {x: 0, y: 58}
+    m_SelectedIDs: 0c270000
+    m_LastClickedID: 9996
     m_ExpandedIDs: 00000000722600007e260000142700006c270000ae2700001028000022280000f2280000f4280000f6280000f828000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -527,9 +527,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: c258ffff
-    m_LastClickedInstanceID: -42814
-    m_HadKeyboardFocusLastEvent: 0
+    m_SelectedInstanceIDs: c058ffff
+    m_LastClickedInstanceID: -42816
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: 762400008e18fcff265a0000bc6dfaff2c28000066f1ffff9c2600001e250000822400007a840000587f000080b0ffff92240000a82400009c2400008e240000662d0000d4290000762d00002a280000c2270000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -629,8 +629,8 @@ MonoBehaviour:
     y: 0
     width: 542
     height: 987
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 277, y: 71}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
@@ -662,7 +662,7 @@ MonoBehaviour:
     y: 92
     width: 540
     height: 966
-  m_ScrollPosition: {x: 0, y: 235.95508}
+  m_ScrollPosition: {x: 0, y: 0}
   m_InspectorMode: 0
   m_PreviewResizer:
     m_CachedPref: 160
