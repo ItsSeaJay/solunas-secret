@@ -2,7 +2,7 @@
 /******************************************************************************
 * Product:     Soluna's Secret
 * Script:      LockTransformRotation
-* Description: N/a
+* Description: Prevents an object from rotating in the three axes
 * Author(s):   Callum John
 * Date:        9/12/2017 3:47:25 PM
 ******************************************************************************/
@@ -14,13 +14,15 @@ using UnityEngine;
 
 public class LockTransformRotation : MonoBehaviour
 {
-	void Start ()
-	{
-		
-	} // End void Start ()
+    private Quaternion startingRotation;
 
-	void Update ()
+    void Start ()
+    {
+        startingRotation = transform.rotation;
+    }
+
+    void LateUpdate ()
 	{
-		
-	} // End void Update ()
+        transform.rotation = startingRotation;
+    } // End void Update ()
 } // End public class LockTransformRotation : MonoBehaviour
