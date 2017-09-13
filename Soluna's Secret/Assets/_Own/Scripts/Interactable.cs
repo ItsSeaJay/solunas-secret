@@ -2,7 +2,8 @@
 /******************************************************************************
 * Product:     Soluna's Secret
 * Script:      Interactable
-* Description: An object that the player can click on to make something happen
+* Description: An object that the player can click on to make something happen.
+*              Do not add this class directly!
 * Author(s):   Callum John
 * Date:        9/13/2017 8:10:20 AM
 ******************************************************************************/
@@ -45,6 +46,20 @@ public class Interactable : MonoBehaviour
 
     public void HandleInteraction ()
     {
-
+        switch (kindOfInteractable)
+        {
+            case Kind.Unspecified:
+                break;
+            case Kind.Pedastal:
+                break;
+            case Kind.Trigger:
+                break;
+            case Kind.Door:
+                break;
+            case Kind.Inscription:
+                break;
+            default:
+                break;
+        }
     }
 } // End public class Interactable : MonoBehaviour
