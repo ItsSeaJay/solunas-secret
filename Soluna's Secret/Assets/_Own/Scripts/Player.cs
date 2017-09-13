@@ -22,15 +22,8 @@ public class Player : MonoBehaviour
 	{
         Debug.Assert(hand != null);
 
-		try
-        {
-            heldObject = GetChild();
-        }
-        catch
-        {
-            Debug.LogWarning("No object held in the players hand on Start ()");
-        }
-	} // End void Start ()
+        // heldObject = hand.transform.GetChild(0).gameObject;
+    } // End void Start ()
 
 	void Update ()
 	{
