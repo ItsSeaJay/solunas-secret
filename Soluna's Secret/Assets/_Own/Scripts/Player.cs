@@ -9,10 +9,15 @@
 
 // Libraries
 using UnityEngine;
+using UnityEngine.UI;
 using System.Collections.Generic;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField]
+    private Transform firstPersonCharacter;
+    [SerializeField]
+    private Crosshair crosshair;
     [SerializeField]
     private Transform hand;
     [SerializeField]
