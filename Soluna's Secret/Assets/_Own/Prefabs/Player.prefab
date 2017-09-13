@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 81350151447485152}
   - component: {fileID: 124273269985299382}
   - component: {fileID: 114406791344437468}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FirstPersonCharacter
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 4357061678319472}
   - component: {fileID: 33306713420515990}
   - component: {fileID: 23349180969042164}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,7 +56,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4850222822565680}
   - component: {fileID: 114966028274519844}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 223436019508949424}
   - component: {fileID: 114841626982659734}
   - component: {fileID: 114516212432248650}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,8 @@ GameObject:
   - component: {fileID: 224536786624987836}
   - component: {fileID: 222996905416317848}
   - component: {fileID: 114310747740065928}
-  m_Layer: 5
+  - component: {fileID: 114574402941368964}
+  m_Layer: 8
   m_Name: Crosshair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +111,7 @@ GameObject:
   - component: {fileID: 114097792305336670}
   - component: {fileID: 54771861685914072}
   - component: {fileID: 82975205064380972}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FPSController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -508,6 +509,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &114574402941368964
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1935437462526964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da31806539f561346850397b89691535, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crosshairTypesArray: []
 --- !u!114 &114841626982659734
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -540,8 +553,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f83d24a4ba080ed48b7412a0d0e04482, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  firstPersonCharacter: {fileID: 0}
+  crosshair: {fileID: 0}
   hand: {fileID: 4357061678319472}
   heldObject: {fileID: 0}
+  reach: 4
 --- !u!124 &124273269985299382
 Behaviour:
   m_ObjectHideFlags: 1

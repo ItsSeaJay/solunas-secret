@@ -21,17 +21,65 @@ public class Player : MonoBehaviour
     [SerializeField]
     private Transform hand;
     [SerializeField]
-    private GameObject heldObject;
+    [Tooltip("From how far away the player can interact with objects.")]
+    private float reach = 4.0f;
 
-	void Start ()
+    private GameObject heldObject;
+    
+    private RaycastHit forwardLookHit; // Used for detecting line-of-sight with objects
+
+    void Start ()
 	{
         Debug.Assert(hand != null);
-
-        // heldObject = hand.transform.GetChild(0).gameObject;
     } // End void Start ()
 
 	void Update ()
 	{
 		
 	} // End void Update ()
+
+    void FixedUpdate()
+    {
+        Vector3 forwardLookVector = firstPersonCharacter.transform.TransformDirection(Vector3.forward);
+        LayerMask layerMask = 1 << LayerMask.NameToLayer("Default"); // Only collide with default objects
+
+        if (Physics.Raycast(firstPersonCharacter.position,
+                            forwardLookVector,
+                            out forwardLookHit,
+                            reach,
+                            layerMask))
+        {
+            // Update Cursor
+            if (forwardLookHit.transform.tag == "Interactable")
+            {
+                // We are looking at an interactable object
+                crosshair.SetSprite("Interact");
+
+                if (Input.GetButtonDown("Interact"))
+                {
+                    Interact();
+                } // if (Input.GetButtonDown("Interact"))
+            } // End if (forwardLookHit.transform.tag == "Interactable")
+            else
+            {
+                // We are looking at a noninteractable object
+                crosshair.SetSprite("Default");
+            }
+        } // End if (Physics.Raycast(firstPersonCharacter.position, ...
+        else
+        {
+            // We are looking at nothing or the sky
+            crosshair.SetSprite("Default");
+        } // End else (Physics.Raycast(firstPersonCharacter.position, ...
+    } // End void FixedUpdate
+
+    private void Interact ()
+    {
+
+    } // End private void Interact ()
+
+    private void RefreshInteractableList()
+    {
+
+    }
 } // End public class Player : MonoBehaviour
