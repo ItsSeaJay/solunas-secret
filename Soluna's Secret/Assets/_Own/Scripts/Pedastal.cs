@@ -38,52 +38,53 @@ public class Pedastal : MonoBehaviour
             player = GameObject.Find("Player").GetComponent<Player>();
         } // End if player == null
 
-        heldItem = container.transform.GetChild(0).gameObject;
+        try
+        {
+            heldItem = container.transform.GetChild(0).gameObject;
+        }
+        catch
+        {
+            heldItem = null;
+        }
 	} // End void Start ()
 
 	void Update ()
 	{
         if (container.transform.childCount > 0)
         {
-            full = true;
+            if (!full)
+            {
+                full = true;
+                tag = "Interactable";
+            }
         } // End if (container.transform.childCount > 0)
         else
         {
-            full = false;
+            if (full)
+            {
+                full = false;
+                tag = "Untagged";
+                player.RefreshInteractableDictionary();
+            }
         } // End if (container.transform.childCount > 0)
     } // End void Update ()
 
     public void Hold()
     {
-        if (full)
-        {
-            if (player.HeldItem == null)
-            {
-                // Allow the player to pick it up
-                heldItem.transform.parent = player.Hand.transform;
-                heldItem.transform.localPosition = Vector3.zero;
-                heldItem.transform.localEulerAngles = Vector3.zero;
+        //if (full)
+        //{
+        //    if (player.HeldItem == null)
+        //    {
+        //        // Allow the player to pick it up
+        //        heldItem.transform.parent = player.Hand.transform;
+        //        heldItem.transform.localPosition = Vector3.zero;
+        //        heldItem.transform.localEulerAngles = Vector3.zero;
 
-                player.HeldItem = heldItem;
-                heldItem = null;
-            }
-        }
-        else
-        {
-            // If the player is currently holding an item
-            if (player.HeldItem != null)
-            {
-                // Put it down on the pedastal
-                heldItem = player.HeldItem;
-                player.HeldItem = null;
-
-                heldItem.transform.parent = container.transform;
-                heldItem.transform.localPosition = new Vector3(0, heldItem.transform.localScale.y, 0);
-                heldItem.transform.localEulerAngles = Vector3.zero;
-            }
-        }
-
-        //if (!full)
+        //        player.HeldItem = heldItem;
+        //        heldItem = null;
+        //    }
+        //}
+        //else
         //{
         //    // If the player is currently holding an item
         //    if (player.HeldItem != null)
@@ -97,6 +98,21 @@ public class Pedastal : MonoBehaviour
         //        heldItem.transform.localEulerAngles = Vector3.zero;
         //    }
         //}
+
+        if (!full)
+        {
+            // If the player is currently holding an item
+            if (player.HeldItem != null)
+            {
+                // Put it down on the pedastal
+                heldItem = player.HeldItem;
+                player.HeldItem = null;
+
+                heldItem.transform.parent = container.transform;
+                heldItem.transform.localPosition = new Vector3(0, heldItem.transform.localScale.y, 0);
+                heldItem.transform.localEulerAngles = Vector3.zero;
+            }
+        }
     } // End public void Toggle()
 
     // Accessors/Mutators

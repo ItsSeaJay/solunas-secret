@@ -33,6 +33,8 @@ public class Player : MonoBehaviour
         Debug.Assert(hand != null);
 
         RefreshInteractableDictionary();
+
+        heldItem = hand.transform.GetChild(0).gameObject;
     } // End void Start ()
 
 	void Update ()
@@ -92,8 +94,10 @@ public class Player : MonoBehaviour
         interactableDictionary[forwardLookHit.transform.gameObject.GetInstanceID().ToString()].HandleInteraction();
     } // End private void Interact ()
 
-    private void RefreshInteractableDictionary()
+    public void RefreshInteractableDictionary()
     {
+        Debug.Log("Refreshing Dictionary");
+
         interactableDictionary.Clear();
 
         object[] interactableObjectsArray = FindObjectsOfType(typeof(Interactable));
