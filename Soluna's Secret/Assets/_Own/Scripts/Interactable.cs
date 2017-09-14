@@ -2,10 +2,9 @@
 /******************************************************************************
 * Product:     Soluna's Secret
 * Script:      Interactable
-* Description: An object that the player can click on to make something happen.
-*              Do not add this class directly!
+* Description: N/a
 * Author(s):   Callum John
-* Date:        9/13/2017 8:10:20 AM
+* Date:        9/14/2017 1:46:15 PM
 ******************************************************************************/
 
 // Libraries
@@ -15,51 +14,13 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
-    enum Kind
-    {
-        Unspecified,
-        Pedastal,
-        Trigger,
-        Door,
-        Inscription
-    }
-
-    private Kind kindOfInteractable = Kind.Unspecified;
-    private Player player;
-
-    void Start ()
+	void Start ()
 	{
-        if (tag != "Interactable" ||
-            transform.tag != "Interactable")
-        {
-            tag = "Interactable";
-            transform.tag = "Interactable";
-        } // if (tag != "Interactable" ||...
-
-        player = GameObject.Find("Player").GetComponent<Player>();
-    } // End void Start ()
+		
+	} // End void Start ()
 
 	void Update ()
 	{
 		
 	} // End void Update ()
-
-    public void HandleInteraction ()
-    {
-        switch (kindOfInteractable)
-        {
-            case Kind.Unspecified:
-                break;
-            case Kind.Pedastal:
-                break;
-            case Kind.Trigger:
-                break;
-            case Kind.Door:
-                break;
-            case Kind.Inscription:
-                break;
-            default:
-                break;
-        }
-    }
 } // End public class Interactable : MonoBehaviour

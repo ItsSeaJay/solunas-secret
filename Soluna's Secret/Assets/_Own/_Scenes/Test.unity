@@ -184,7 +184,7 @@ GameObject:
   m_Component:
   - component: {fileID: 713213794}
   m_Layer: 0
-  m_Name: Test Pedastal Holster
+  m_Name: Test Pedastal Container
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -522,6 +522,8 @@ GameObject:
   - component: {fileID: 1289492165}
   - component: {fileID: 1289492164}
   - component: {fileID: 1289492163}
+  - component: {fileID: 1289492168}
+  - component: {fileID: 1289492167}
   m_Layer: 0
   m_Name: Test Pedastal
   m_TagString: Interactable
@@ -594,6 +596,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1289492167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1289492162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fd91190b720bf0478d822d1e6c62a3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  container: {fileID: 713213793}
+--- !u!114 &1289492168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1289492162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3698211c30519b4bae2554e9fb492fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1381372458
 GameObject:
   m_ObjectHideFlags: 0
@@ -705,7 +730,7 @@ Animator:
   m_GameObject: {fileID: 2008371607}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1632d0871857ff446bdf1f43e7f5a266, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

@@ -23,7 +23,6 @@ public class Player : MonoBehaviour
     [SerializeField]
     [Tooltip("From how far away the player can interact with objects.")]
     private float reach = 4.0f;
-
     private GameObject heldObject;
     
     private RaycastHit forwardLookHit; // Used for detecting line-of-sight with objects
@@ -75,11 +74,36 @@ public class Player : MonoBehaviour
 
     private void Interact ()
     {
-
+        Interactable interactable = forwardLookHit.transform.gameObject.GetComponent<Interactable>();
     } // End private void Interact ()
 
     private void RefreshInteractableList()
     {
 
+    }
+
+    // Accessors/Mutators()
+    public Transform FirstPersonCharacter
+    {
+        get
+        {
+            return firstPersonCharacter;
+        }
+    }
+
+    public Transform Hand
+    {
+        get
+        {
+            return hand;
+        }
+    }
+
+    public GameObject HeldObject
+    {
+        get
+        {
+            return heldObject;
+        }
     }
 } // End public class Player : MonoBehaviour
