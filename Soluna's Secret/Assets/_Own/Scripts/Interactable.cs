@@ -14,13 +14,50 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
+    public enum Kind
+    {
+        Unspecified,
+        Pedastal
+    }
+
+    private Kind kindOfInteractable = Kind.Unspecified;
+
 	void Start ()
 	{
-		
-	} // End void Start ()
+        tag = "Interactable";
+    } // End void Start ()
 
 	void Update ()
 	{
 		
 	} // End void Update ()
+
+    public void HandleInteraction()
+    {
+        switch (kindOfInteractable)
+        {
+            case Kind.Unspecified:
+                break;
+            case Kind.Pedastal:
+                Pedastal pedastal = GetComponent<Pedastal>();
+
+                pedastal.Toggle();
+                break;
+            default:
+                break;
+        }
+    } // End public void HandleInteraction()
+
+    // Accessors/Mutators
+    public Kind KindOfInteractable
+    {
+        get
+        {
+            return kindOfInteractable;
+        }
+        set
+        {
+            kindOfInteractable = value;
+        }
+    }
 } // End public class Interactable : MonoBehaviour

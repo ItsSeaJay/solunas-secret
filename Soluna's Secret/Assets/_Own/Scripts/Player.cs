@@ -23,21 +23,24 @@ public class Player : MonoBehaviour
     [SerializeField]
     [Tooltip("From how far away the player can interact with objects.")]
     private float reach = 4.0f;
-    private GameObject heldObject;
-    
+
+    private Dictionary<string, Interactable> interactableDictionary = new Dictionary<string, Interactable>();
+    private GameObject heldItem;    
     private RaycastHit forwardLookHit; // Used for detecting line-of-sight with objects
 
     void Start ()
 	{
         Debug.Assert(hand != null);
+
+        RefreshInteractableDictionary();
     } // End void Start ()
 
 	void Update ()
 	{
-		
+        HandleLooking();
 	} // End void Update ()
 
-    void FixedUpdate()
+    private void HandleLooking()
     {
         Vector3 forwardLookVector = firstPersonCharacter.transform.TransformDirection(Vector3.forward);
         LayerMask layerMask = 1 << LayerMask.NameToLayer("Default"); // Only collide with default objects
@@ -52,7 +55,17 @@ public class Player : MonoBehaviour
             if (forwardLookHit.transform.tag == "Interactable")
             {
                 // We are looking at an interactable object
-                crosshair.SetSprite("Interact");
+                switch (interactableDictionary[forwardLookHit.transform.gameObject.GetInstanceID().ToString()].KindOfInteractable)
+                {
+                    case Interactable.Kind.Unspecified:
+                        crosshair.SetSprite("Pickup");
+                        break;
+                    case Interactable.Kind.Pedastal:
+                        crosshair.SetSprite("Pickup");
+                        break;
+                    default:
+                        break;
+                }
 
                 if (Input.GetButtonDown("Interact"))
                 {
@@ -70,17 +83,24 @@ public class Player : MonoBehaviour
             // We are looking at nothing or the sky
             crosshair.SetSprite("Default");
         } // End else (Physics.Raycast(firstPersonCharacter.position, ...
-    } // End void FixedUpdate
+    }
 
     private void Interact ()
     {
-        Interactable interactable = forwardLookHit.transform.gameObject.GetComponent<Interactable>();
+        interactableDictionary[forwardLookHit.transform.gameObject.GetInstanceID().ToString()].HandleInteraction();
     } // End private void Interact ()
 
-    private void RefreshInteractableList()
+    private void RefreshInteractableDictionary()
     {
+        interactableDictionary.Clear();
 
-    }
+        object[] interactableObjectsArray = FindObjectsOfType(typeof(Interactable));
+
+        foreach (Interactable interactable in interactableObjectsArray)
+        {
+            interactableDictionary.Add(interactable.gameObject.GetInstanceID().ToString(), interactable);
+        } // End foreach (Interactable interactable in interactableObjectsArray)
+    } // End private void RefreshInteractableDictionary()
 
     // Accessors/Mutators()
     public Transform FirstPersonCharacter
@@ -99,11 +119,15 @@ public class Player : MonoBehaviour
         }
     }
 
-    public GameObject HeldObject
+    public GameObject HeldItem
     {
         get
         {
-            return heldObject;
+            return heldItem;
+        }
+        set
+        {
+            heldItem = value;
         }
     }
 } // End public class Player : MonoBehaviour

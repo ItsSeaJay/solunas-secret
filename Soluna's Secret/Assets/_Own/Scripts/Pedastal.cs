@@ -19,15 +19,27 @@ public class Pedastal : MonoBehaviour
 {
     [SerializeField]
     private GameObject container;
-
-    private GameObject heldItem;
+    [SerializeField]
     private Player player;
+
+    private Interactable interactable;
+    private GameObject heldItem;
 
     private bool full = false;
 
 	void Start ()
 	{
-        player = GameObject.Find("Player").GetComponent<Player>();
+        interactable = GetComponent<Interactable>();
+
+        interactable.KindOfInteractable = Interactable.Kind.Pedastal;
+
+        if (player == null)
+        {
+            player = GameObject.Find("Player").GetComponent<Player>();
+        } // End if player == null
+
+        heldItem = container.transform.GetChild(0).gameObject;
+        heldItem.tag = "Interactable";
 	} // End void Start ()
 
 	void Update ()
@@ -42,7 +54,38 @@ public class Pedastal : MonoBehaviour
         } // End if (container.transform.childCount > 0)
     } // End void Update ()
 
-    // Accessors/Mutators()
+    public void Toggle()
+    {
+        if (full)
+        {
+            if (player.HeldItem == null)
+            {
+                // Allow the player to pick it up
+                heldItem.transform.parent = player.Hand.transform;
+                heldItem.transform.localPosition = Vector3.zero;
+                heldItem.transform.localEulerAngles = Vector3.zero;
+
+                player.HeldItem = heldItem;
+                heldItem = null;
+            }
+        }
+        else
+        {
+            // If the player is currently holding an item
+            if (player.HeldItem != null)
+            {
+                // Put it down on the pedastal
+                heldItem = player.HeldItem;
+                player.HeldItem = null;
+
+                heldItem.transform.parent = container.transform;
+                heldItem.transform.localPosition = new Vector3(0, heldItem.transform.localScale.y, 0);
+                heldItem.transform.localEulerAngles = Vector3.zero;
+            }
+        }
+    }
+
+    // Accessors/Mutators
     public bool Full
     {
         get
