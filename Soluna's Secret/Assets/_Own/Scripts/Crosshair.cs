@@ -41,6 +41,8 @@ public class Crosshair : MonoBehaviour
         foreach (CrosshairType ct in crosshairTypesArray)
         {
             crosshairTypesDictionary.Add(ct.name, ct.sprite);
+
+            Debug.Log(ct.sprite.name);
         } // End foreach(CrosshairType crosshairType in crosshairTypesArray)
     } // End void Start ()
 

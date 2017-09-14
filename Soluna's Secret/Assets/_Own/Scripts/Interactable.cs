@@ -17,7 +17,8 @@ public class Interactable : MonoBehaviour
     public enum Kind
     {
         Unspecified,
-        Pedastal
+        Pedastal,
+        Pickup
     }
 
     private Kind kindOfInteractable = Kind.Unspecified;
@@ -41,7 +42,7 @@ public class Interactable : MonoBehaviour
             case Kind.Pedastal:
                 Pedastal pedastal = GetComponent<Pedastal>();
 
-                pedastal.Toggle();
+                pedastal.Hold();
                 break;
             default:
                 break;

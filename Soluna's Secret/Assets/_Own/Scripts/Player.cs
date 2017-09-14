@@ -55,15 +55,17 @@ public class Player : MonoBehaviour
             if (forwardLookHit.transform.tag == "Interactable")
             {
                 // We are looking at an interactable object
+                // Alter the sprite of the crosshair accordingly
                 switch (interactableDictionary[forwardLookHit.transform.gameObject.GetInstanceID().ToString()].KindOfInteractable)
                 {
                     case Interactable.Kind.Unspecified:
-                        crosshair.SetSprite("Pickup");
+                        crosshair.SetSprite("Interact");
                         break;
                     case Interactable.Kind.Pedastal:
-                        crosshair.SetSprite("Pickup");
+                        crosshair.SetSprite("Interact");
                         break;
                     default:
+                        crosshair.SetSprite("Default");
                         break;
                 }
 
