@@ -10,12 +10,21 @@
 // Libraries
 using UnityEngine;
 using UnityEngine.UI;
+using UnityStandardAssets.Characters.FirstPerson;
 using System.Collections.Generic;
 
 public class Player : MonoBehaviour
 {
+    public enum State
+    {
+        Normal,
+        Frozen
+    };
+
     [SerializeField]
     private Transform firstPersonCharacter;
+    [SerializeField]
+    private FirstPersonController firstPersonController;
     [SerializeField]
     private Crosshair crosshair;
     [SerializeField]
@@ -25,7 +34,8 @@ public class Player : MonoBehaviour
     private float reach = 4.0f;
 
     private Dictionary<string, Interactable> interactableDictionary = new Dictionary<string, Interactable>();
-    private GameObject heldItem;    
+    private GameObject heldItem;
+    private State currentState = State.Normal;
     private RaycastHit forwardLookHit; // Used for detecting line-of-sight with objects
 
     void Start ()
@@ -47,7 +57,19 @@ public class Player : MonoBehaviour
 
 	void Update ()
 	{
-        HandleLooking();
+        switch (currentState)
+        {
+            case State.Normal:
+                HandleLooking();
+                firstPersonController.MouseLookEnabled = true;
+                break;
+            case State.Frozen:
+                Cursor.lockState = CursorLockMode.Locked;
+                firstPersonController.MouseLookEnabled = false;
+                break;
+            default:
+                break;
+        }
 	} // End void Update ()
 
     private void HandleLooking()
@@ -80,7 +102,7 @@ public class Player : MonoBehaviour
                     default:
                         crosshair.SetSprite("Default");
                         break;
-                }
+                } // End if ()
 
                 if (Input.GetButtonDown("Interact"))
                 {

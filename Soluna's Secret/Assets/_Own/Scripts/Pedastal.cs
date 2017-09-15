@@ -51,15 +51,13 @@ public class Pedastal : MonoBehaviour
 	{
         if (container.transform.childCount > 0)
         {
-            if (!full)
-            {
-                full = true;
-            }
+            full = true;
+            tag = "Untagged";
         } // End if (container.transform.childCount > 0)
         else
-        {
+        { 
             full = false;
-            tag  = "Interactable";
+            tag = "Interactable";
         } // End if (container.transform.childCount > 0)
     } // End void Update ()
 
