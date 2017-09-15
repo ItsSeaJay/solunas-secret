@@ -59,6 +59,7 @@ public class Pedastal : MonoBehaviour
         else
         {
             full = false;
+            tag  = "Interactable";
         } // End if (container.transform.childCount > 0)
     } // End void Update ()
 
@@ -70,7 +71,7 @@ public class Pedastal : MonoBehaviour
             if (player.HeldItem != null)
             {
                 // Put it down on the pedastal
-                heldItem = player.HeldItem;
+                heldItem        = player.HeldItem;
                 player.HeldItem = null;
 
                 heldItem.transform.parent = container.transform;

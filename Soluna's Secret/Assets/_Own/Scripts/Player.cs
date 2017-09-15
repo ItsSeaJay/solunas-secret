@@ -74,6 +74,9 @@ public class Player : MonoBehaviour
                     case Interactable.Kind.Pedastal:
                         crosshair.SetSprite("Interact");
                         break;
+                    case Interactable.Kind.Pickup:
+                        crosshair.SetSprite("Pickup");
+                        break;
                     default:
                         crosshair.SetSprite("Default");
                         break;

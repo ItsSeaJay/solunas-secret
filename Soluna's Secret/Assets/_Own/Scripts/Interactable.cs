@@ -35,8 +35,6 @@ public class Interactable : MonoBehaviour
 
     public void HandleInteraction()
     {
-        print("Mischeif Managed");
-
         switch (kindOfInteractable)
         {
             case Kind.Unspecified:
@@ -53,7 +51,7 @@ public class Interactable : MonoBehaviour
                 break;
             default:
                 break;
-        }
+        } // End switch (kindOfInteractable)
     } // End public void HandleInteraction()
 
     // Accessors/Mutators

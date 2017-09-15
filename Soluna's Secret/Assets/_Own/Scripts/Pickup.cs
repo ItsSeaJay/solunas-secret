@@ -39,20 +39,24 @@ public class Pickup : MonoBehaviour
 		if (transform.parent == player.Hand.transform)
         {
             held = true;
-        }
+        } // if (transform.parent == player.Hand.transform)
         else
         {
             held = false;
-        }
-	} // End void Update ()
+        } // End else (transform.parent == player.Hand.transform)
+    } // End void Update ()
 
     public void Obtain ()
     {
-        // Allow the player to pick it up
-        transform.parent           = player.Hand.transform;
-        transform.localPosition    = Vector3.zero;
-        transform.localEulerAngles = Vector3.zero;
+        // Only if the player isn't holding anything
+        if (player.HeldItem == null)
+        {
+            // Allow the player to pick it up
+            transform.parent = player.Hand.transform;
+            transform.localPosition = Vector3.zero;
+            transform.localEulerAngles = Vector3.zero;
 
-        player.HeldItem = this.gameObject;
+            player.HeldItem = this.gameObject;
+        } // End if (player.Hand.transform.childCount == 0)
     } // End public void Obtain ()
 } // End public class Pickup : MonoBehaviour
