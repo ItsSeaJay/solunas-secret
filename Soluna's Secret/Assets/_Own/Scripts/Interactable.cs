@@ -35,6 +35,8 @@ public class Interactable : MonoBehaviour
 
     public void HandleInteraction()
     {
+        print("Mischeif Managed");
+
         switch (kindOfInteractable)
         {
             case Kind.Unspecified:
@@ -43,6 +45,11 @@ public class Interactable : MonoBehaviour
                 Pedastal pedastal = GetComponent<Pedastal>();
 
                 pedastal.Hold();
+                break;
+            case Kind.Pickup:
+                Pickup pickup = GetComponent<Pickup>();
+
+                pickup.Obtain();
                 break;
             default:
                 break;

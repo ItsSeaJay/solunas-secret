@@ -170,6 +170,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &577001843 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1501602545256780, guid: b608bad527c26b644aeed383ec4472c4,
+    type: 2}
+  m_PrefabInternal: {fileID: 1093149188}
+--- !u!114 &577001844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 577001843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c33b2b2dc46a7794c9e0bd978b2e6c39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 731385362}
+--- !u!114 &577001845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 577001843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 081b24be3f7ef8e44b947617a0c0bb0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &713213793
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,6 +226,12 @@ Transform:
   m_Father: {fileID: 1289492166}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &731385362 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114966028274519844, guid: b608bad527c26b644aeed383ec4472c4,
+    type: 2}
+  m_PrefabInternal: {fileID: 1093149188}
+  m_Script: {fileID: 11500000, guid: f83d24a4ba080ed48b7412a0d0e04482, type: 3}
 --- !u!1001 &1093149188
 Prefab:
   m_ObjectHideFlags: 0
@@ -236,6 +270,11 @@ Prefab:
     - target: {fileID: 4850222822565680, guid: b608bad527c26b644aeed383ec4472c4, type: 2}
       propertyPath: m_RootOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 20511873724031656, guid: b608bad527c26b644aeed383ec4472c4,
+        type: 2}
+      propertyPath: field of view
+      value: 60
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b608bad527c26b644aeed383ec4472c4, type: 2}
@@ -490,7 +529,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   container: {fileID: 713213793}
-  player: {fileID: 0}
+  player: {fileID: 731385362}
 --- !u!114 &1289492168
 MonoBehaviour:
   m_ObjectHideFlags: 0

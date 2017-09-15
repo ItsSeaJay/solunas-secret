@@ -30,7 +30,6 @@ public class Pedastal : MonoBehaviour
 	void Start ()
 	{
         interactable = GetComponent<Interactable>();
-
         interactable.KindOfInteractable = Interactable.Kind.Pedastal;
 
         if (player == null)
@@ -55,50 +54,16 @@ public class Pedastal : MonoBehaviour
             if (!full)
             {
                 full = true;
-                tag = "Interactable";
             }
         } // End if (container.transform.childCount > 0)
         else
         {
-            if (full)
-            {
-                full = false;
-                tag = "Untagged";
-                player.RefreshInteractableDictionary();
-            }
+            full = false;
         } // End if (container.transform.childCount > 0)
     } // End void Update ()
 
     public void Hold()
     {
-        //if (full)
-        //{
-        //    if (player.HeldItem == null)
-        //    {
-        //        // Allow the player to pick it up
-        //        heldItem.transform.parent = player.Hand.transform;
-        //        heldItem.transform.localPosition = Vector3.zero;
-        //        heldItem.transform.localEulerAngles = Vector3.zero;
-
-        //        player.HeldItem = heldItem;
-        //        heldItem = null;
-        //    }
-        //}
-        //else
-        //{
-        //    // If the player is currently holding an item
-        //    if (player.HeldItem != null)
-        //    {
-        //        // Put it down on the pedastal
-        //        heldItem = player.HeldItem;
-        //        player.HeldItem = null;
-
-        //        heldItem.transform.parent = container.transform;
-        //        heldItem.transform.localPosition = new Vector3(0, heldItem.transform.localScale.y, 0);
-        //        heldItem.transform.localEulerAngles = Vector3.zero;
-        //    }
-        //}
-
         if (!full)
         {
             // If the player is currently holding an item
@@ -111,8 +76,10 @@ public class Pedastal : MonoBehaviour
                 heldItem.transform.parent = container.transform;
                 heldItem.transform.localPosition = new Vector3(0, heldItem.transform.localScale.y, 0);
                 heldItem.transform.localEulerAngles = Vector3.zero;
-            }
-        }
+
+                tag = "Untagged";
+            } // End if (player.HeldItem != null)
+        } // End if (!full)
     } // End public void Toggle()
 
     // Accessors/Mutators

@@ -30,11 +30,19 @@ public class Player : MonoBehaviour
 
     void Start ()
 	{
-        Debug.Assert(hand != null);
+        Debug.Assert(crosshair != null);
+        Debug.Assert(hand      != null);
 
         RefreshInteractableDictionary();
 
-        heldItem = hand.transform.GetChild(0).gameObject;
+        try
+        {
+            heldItem = hand.transform.GetChild(0).gameObject;
+        }
+        catch
+        {
+            heldItem = null;
+        }
     } // End void Start ()
 
 	void Update ()
@@ -80,7 +88,7 @@ public class Player : MonoBehaviour
             {
                 // We are looking at a noninteractable object
                 crosshair.SetSprite("Default");
-            }
+            } // End else (forwardLookHit.transform.tag == "Interactable")
         } // End if (Physics.Raycast(firstPersonCharacter.position, ...
         else
         {
@@ -96,8 +104,6 @@ public class Player : MonoBehaviour
 
     public void RefreshInteractableDictionary()
     {
-        Debug.Log("Refreshing Dictionary");
-
         interactableDictionary.Clear();
 
         object[] interactableObjectsArray = FindObjectsOfType(typeof(Interactable));
