@@ -14,13 +14,8 @@ using UnityEngine;
 
 public class Billboard : MonoBehaviour
 {
-	void Start ()
-	{
-		
-	} // End void Start ()
-
 	void Update ()
 	{
-		
+        transform.forward = -Camera.main.transform.forward;
 	} // End void Update ()
 } // End public class Billboard : MonoBehaviour
