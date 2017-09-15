@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4157860567694854}
   - component: {fileID: 108231526045280548}
+  - component: {fileID: 114436312108518382}
   m_Layer: 0
   m_Name: Point light
   m_TagString: Untagged
@@ -200,7 +201,7 @@ Light:
     m_NearPlane: 0.2
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
-  m_Flare: {fileID: 0}
+  m_Flare: {fileID: 12100000, guid: 9bdb18c49d114cb4300035184241aa39, type: 2}
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
@@ -234,6 +235,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98ac1b06e00a6cb498ac6c8ccc0c6ad0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114436312108518382
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1158487598256406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 734c6bfcaae036f4a9af61014eb7b645, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minRange: 3
+  maxRange: 3.66
+  flickerRate: 3
 --- !u!114 &114455163384782698
 MonoBehaviour:
   m_ObjectHideFlags: 1

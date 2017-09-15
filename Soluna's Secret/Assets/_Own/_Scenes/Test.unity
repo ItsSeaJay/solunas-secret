@@ -162,6 +162,11 @@ Prefab:
       propertyPath: firstPersonController
       value: 
       objectReference: {fileID: 1418360708}
+    - target: {fileID: 114310747740065928, guid: b608bad527c26b644aeed383ec4472c4,
+        type: 2}
+      propertyPath: m_Color.a
+      value: 0.741
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b608bad527c26b644aeed383ec4472c4, type: 2}
   m_IsPrefabParent: 0
@@ -698,12 +703,30 @@ Transform:
   m_Father: {fileID: 1289492166}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &731385361 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1774017007293558, guid: b608bad527c26b644aeed383ec4472c4,
+    type: 2}
+  m_PrefabInternal: {fileID: 164934774}
 --- !u!114 &731385362 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114966028274519844, guid: b608bad527c26b644aeed383ec4472c4,
     type: 2}
   m_PrefabInternal: {fileID: 164934774}
   m_Script: {fileID: 11500000, guid: f83d24a4ba080ed48b7412a0d0e04482, type: 3}
+--- !u!114 &731385364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 731385361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98f45e1d3b23426489597ec5d6f490e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quitUsingButton: 0
+  buttonToPush: Cancel
 --- !u!1 &908122151
 GameObject:
   m_ObjectHideFlags: 0
@@ -1346,6 +1369,21 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 731385362}
+    - target: {fileID: 108231526045280548, guid: 9f412b772d2e4c94388929962c43e1e0,
+        type: 2}
+      propertyPath: m_Flare
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 108231526045280548, guid: 9f412b772d2e4c94388929962c43e1e0,
+        type: 2}
+      propertyPath: m_DrawHalo
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 108231526045280548, guid: 9f412b772d2e4c94388929962c43e1e0,
+        type: 2}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9f412b772d2e4c94388929962c43e1e0, type: 2}
   m_IsPrefabParent: 0
