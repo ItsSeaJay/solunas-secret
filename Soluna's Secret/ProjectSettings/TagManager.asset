@@ -5,7 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Interactable
-  - Pickup
+  - Lunar
+  - Solar
+  - Light
   layers:
   - Default
   - TransparentFX
@@ -16,7 +18,7 @@ TagManager:
   - 
   - 
   - Player
-  - 
+  - Light
   - 
   - 
   - 
