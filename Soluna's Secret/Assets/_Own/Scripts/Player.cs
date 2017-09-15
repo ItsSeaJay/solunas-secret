@@ -98,7 +98,7 @@ public class Player : MonoBehaviour
             // We are looking at nothing or the sky
             crosshair.SetSprite("Default");
         } // End else (Physics.Raycast(firstPersonCharacter.position, ...
-    }
+    } // End private void
 
     private void Interact ()
     {
