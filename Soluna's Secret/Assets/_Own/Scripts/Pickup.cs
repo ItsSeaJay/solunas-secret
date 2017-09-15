@@ -59,4 +59,12 @@ public class Pickup : MonoBehaviour
             player.HeldItem = this.gameObject;
         } // End if (player.Hand.transform.childCount == 0)
     } // End public void Obtain ()
+
+    public bool Held
+    {
+        get
+        {
+            return held;
+        }
+    }
 } // End public class Pickup : MonoBehaviour
