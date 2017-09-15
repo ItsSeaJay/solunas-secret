@@ -14,7 +14,12 @@ using UnityEngine;
 
 public class Lantern : MonoBehaviour
 {
-
+    [SerializeField]
+    private Projector lanternProjector;
+    [SerializeField]
+    private Light     lanternLight;
+    [SerializeField]
+    private Collider  lightCollider;
 
     private Pickup pickup;
 
@@ -22,6 +27,10 @@ public class Lantern : MonoBehaviour
 
 	void Start ()
 	{
+        Debug.Assert(lanternProjector != null);
+        Debug.Assert(lanternLight != null);
+        Debug.Assert(lightCollider != null);
+
         pickup = GetComponent<Pickup>();
 	} // End void Start ()
 
@@ -39,14 +48,8 @@ public class Lantern : MonoBehaviour
     private void Toggle()
     {
         isLit = !isLit;
-
-        if (isLit)
-        {
-
-        } // End else (isLit)
-        else
-        {
-
-        } // End else (isLit)
+        lanternProjector.enabled = !lanternProjector.enabled;
+        lanternLight.enabled = !lanternLight.enabled;
+        lightCollider.enabled = !lightCollider.enabled;
     } // End private void Toggle()
 } // End public class Lantern : MonoBehaviour

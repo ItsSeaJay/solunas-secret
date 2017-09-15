@@ -256,6 +256,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93ead078ebc62ef40884ea783bd997e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lanternProjector: {fileID: 119677456104840920}
+  lanternLight: {fileID: 108231526045280548}
+  lightCollider: {fileID: 136349783466331882}
 --- !u!114 &114761813867977178
 MonoBehaviour:
   m_ObjectHideFlags: 1
