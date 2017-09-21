@@ -48,7 +48,7 @@ public class Interactable : MonoBehaviour
             case Kind.Door:
                 Door door = GetComponent<Door>();
 
-                door.Toggle();
+                door.Move();
                 break;
             default:
                 break;
