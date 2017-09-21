@@ -18,7 +18,8 @@ public class Interactable : MonoBehaviour
     {
         Unspecified,
         Pedastal,
-        Pickup
+        Pickup,
+        Door
     }
 
     private Kind kindOfInteractable = Kind.Unspecified;
@@ -27,11 +28,6 @@ public class Interactable : MonoBehaviour
 	{
         tag = "Interactable";
     } // End void Start ()
-
-	void Update ()
-	{
-		
-	} // End void Update ()
 
     public void HandleInteraction()
     {
@@ -48,6 +44,11 @@ public class Interactable : MonoBehaviour
                 Pickup pickup = GetComponent<Pickup>();
 
                 pickup.Obtain();
+                break;
+            case Kind.Door:
+                Door door = GetComponent<Door>();
+
+                door.Toggle();
                 break;
             default:
                 break;
