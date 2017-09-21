@@ -45,8 +45,7 @@ public class Door : MonoBehaviour
 
     private void CreateAnimatorController()
     {
-        var controller = UnityEditor.Animations.AnimatorController.CreateAnimatorControllerAtPath("_Own/Animation/Controllers/" + 
-                                                                                                  GetInstanceID().ToString() + "Door");
+        UnityEditor.Animations.AnimatorController controller = new UnityEditor.Animations.AnimatorController();
 
         // Add StateMachines
         var rootStateMachine = controller.layers[0].stateMachine;
