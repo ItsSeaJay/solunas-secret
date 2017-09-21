@@ -20,52 +20,25 @@ using UnityEngine.Animations;
 public class Door : MonoBehaviour
 {
     [SerializeField]
-    private AnimationClip openingClip, openClip, closingClip, closedClip;
-    [SerializeField]
     private bool isOpen = false;
     [SerializeField]
     private bool isLocked = false;
 
     private Interactable interactable;
     private Animator animator;
-    private RuntimeAnimatorController runtimeAnimatorController = new RuntimeAnimatorController();
 
 	void Start ()
 	{
-        interactable                       = GetComponent<Interactable>();
-        animator                           = GetComponent<Animator>();
+        interactable                        = GetComponent<Interactable>();
+        animator                            = GetComponent<Animator>();
 
-        CreateAnimatorController();
+        animator.Play("Open");
 	} // End void Start ()
 
 	void Update ()
 	{
 		
 	} // End void Update ()
-
-    private void CreateAnimatorController()
-    {
-        UnityEditor.Animations.AnimatorController controller = new UnityEditor.Animations.AnimatorController();
-
-        // Add StateMachines
-        var rootStateMachine = controller.layers[0].stateMachine;
-
-        // Add States
-        var openingState = rootStateMachine.AddState("Open");
-        var openState    = rootStateMachine.AddState("Opening");
-        var closingState = rootStateMachine.AddState("Closing");
-        var closedState  = rootStateMachine.AddState("Closed");
-
-        // Set state clips
-        openingState.motion = openingClip;
-        openState.motion    = openClip;
-        closingState.motion = closingClip;
-        closedState.motion  = closedClip;
-
-        // Set State Transitions
-        openingState.AddExitTransition(openState);
-        closingState.AddExitTransition(closedState);
-    }
 
     private void Open ()
     {
@@ -79,10 +52,7 @@ public class Door : MonoBehaviour
 
     public void Move ()
     {
-        if (!isLocked)
-        {
 
-        }
     } // End public void Toggle ()
 
     public bool IsOpen
