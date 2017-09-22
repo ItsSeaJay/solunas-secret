@@ -14,25 +14,18 @@ using UnityEngine;
 using UnityEngine.Animations;
 
 // Requirement(s)
-[RequireComponent(typeof(Interactable))]
-[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(Toggle))]
 
 public class Door : MonoBehaviour
 {
     [SerializeField]
-    private bool isOpen = false;
-    [SerializeField]
-    private bool isLocked = false;
+    private bool locked = false;
 
-    private Interactable interactable;
-    private Animator animator;
+    private Toggle toggle;
 
 	void Start ()
 	{
-        interactable                        = GetComponent<Interactable>();
-        animator                            = GetComponent<Animator>();
-
-        animator.Play("Open");
+        toggle = GetComponent<Toggle>();
 	} // End void Start ()
 
 	void Update ()
@@ -40,26 +33,11 @@ public class Door : MonoBehaviour
 		
 	} // End void Update ()
 
-    private void Open ()
-    {
-
-    }
-
-    private void Close ()
-    {
-
-    }
-
     public void Move ()
     {
-
-    } // End public void Toggle ()
-
-    public bool IsOpen
-    {
-        get
+        if (!locked)
         {
-            return isOpen;
-        } // End get
-    } // End public bool Open
+            toggle.ToggleActivation();
+        } // End if (!locked)
+    } // End public void Toggle ()
 } // End public class Door : MonoBehaviour
