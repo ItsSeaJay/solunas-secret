@@ -17,7 +17,6 @@ using UnityEngine.Animations;
 [RequireComponent(typeof(Interactable))]
 [RequireComponent(typeof(Animator))]
 
-[ExecuteInEditMode]
 public class Door : MonoBehaviour
 {
     [SerializeField]
@@ -28,6 +27,7 @@ public class Door : MonoBehaviour
     private float transitionTime = 1.0f;
 
     private Animator animator;
+    private Interactable interactable;
 
 	void Start ()
 	{
@@ -45,6 +45,9 @@ public class Door : MonoBehaviour
             // The door is closed
             animator.Play("Closed");
         }
+
+        interactable = GetComponent<Interactable>();
+        interactable.KindOfInteractable = Interactable.Kind.Door;
     } // End void Start ()
 
 	void Update ()

@@ -50,7 +50,7 @@ public class Interactable : MonoBehaviour
                 break;
             case Kind.Door:
                 Door door = GetComponent<Door>();
-
+                Debug.Log("Moving door...");
                 door.Move();
                 break;
             default:

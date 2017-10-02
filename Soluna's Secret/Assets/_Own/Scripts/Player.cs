@@ -99,6 +99,9 @@ public class Player : MonoBehaviour
                     case Interactable.Kind.Pickup:
                         crosshair.SetSprite("Pickup");
                         break;
+                    case Interactable.Kind.Door:
+                        crosshair.SetSprite("Interact");
+                        break;
                     default:
                         crosshair.SetSprite("Default");
                         break;
