@@ -15,17 +15,19 @@ using UnityEngine.Animations;
 
 // Requirement(s)
 [RequireComponent(typeof(Interactable))]
+[RequireComponent(typeof(Animator))]
 
 public class Door : MonoBehaviour
 {
     [SerializeField]
     private bool locked = false;
+    private bool open = false;
 
-    private AnimatedToggle toggle;
+    private Animator animator;
 
 	void Start ()
 	{
-        toggle = GetComponent<AnimatedToggle>();
+        animator = GetComponent<Animator>();
 	} // End void Start ()
 
 	void Update ()
