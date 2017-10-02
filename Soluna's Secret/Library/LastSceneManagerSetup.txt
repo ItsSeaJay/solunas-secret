@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/_Own/_Scenes/Genesis.unity
+- path: Assets/_Own/_Scenes/Test.unity
   isLoaded: 1
   isActive: 1

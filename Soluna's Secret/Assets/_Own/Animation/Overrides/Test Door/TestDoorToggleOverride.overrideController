@@ -6,5 +6,9 @@ AnimatorOverrideController:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: TestDoorToggleOverride
-  m_Controller: {fileID: 0}
-  m_Clips: []
+  m_Controller: {fileID: 9100000, guid: 83dea515d9e5fd74ca5b9e9f98b2388f, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: b561dd4e67601694983eeaced4de3af4, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 883f5c4be7d8f1c41b9aae163ed1ddc7, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 7bd870bc7360f8f41b7f1691d5e55655, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: d2b9cca28c7f2734c83d96900d179423, type: 2}
