@@ -26,7 +26,10 @@ public class Interactable : MonoBehaviour
 
 	void Start ()
 	{
-        tag = "Interactable";
+        if (tag != "Interactable")
+        {
+            tag = "Interactable";
+        }
     } // End void Start ()
 
     public void HandleInteraction()

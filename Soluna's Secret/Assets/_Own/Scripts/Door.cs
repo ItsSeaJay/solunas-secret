@@ -33,6 +33,8 @@ public class Door : MonoBehaviour
 	{
         animator = GetComponent<Animator>();
 
+        Debug.Assert(animator.runtimeAnimatorController != null, "Door " + name + ' ' + GetInstanceID().ToString() + " requires an animator controller to work.");
+
         if (open)
         {
             // The door is open
@@ -47,13 +49,22 @@ public class Door : MonoBehaviour
 
 	void Update ()
 	{
-		
+		if (!locked)
+        {
+            tag = "Interactable";
+        }
+        else
+        {
+            tag = "Untagged";
+        }
 	} // End void Update ()
 
     public void Move ()
     {
+        Debug.Log("Moving Door...");
         if (!locked)
         {
+            Debug.Log("That door is unlocked, opening...");
             if (open)
             {
                 Close();
@@ -67,11 +78,15 @@ public class Door : MonoBehaviour
 
     private void Open ()
     {
+        Debug.Log("Opened door " + name + ' ' + GetInstanceID().ToString());
         animator.CrossFade("Open", transitionTime);
+        open = true;
     } // End if private void Open()
 
     private void Close ()
     {
+        Debug.Log("Closed door " + name + ' ' + GetInstanceID().ToString());
         animator.CrossFade("Close", transitionTime);
+        open = false;
     } // End if private void Open()
 } // End public class Door : MonoBehaviour
