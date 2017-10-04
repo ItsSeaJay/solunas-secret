@@ -102,6 +102,9 @@ public class Player : MonoBehaviour
                     case Interactable.Kind.Door:
                         crosshair.SetSprite("Interact");
                         break;
+                    case Interactable.Kind.Inscription:
+                        crosshair.SetSprite("Look");
+                        break;
                     default:
                         crosshair.SetSprite("Default");
                         break;

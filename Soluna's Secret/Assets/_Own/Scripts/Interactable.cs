@@ -19,7 +19,8 @@ public class Interactable : MonoBehaviour
         Unspecified,
         Pedastal,
         Pickup,
-        Door
+        Door,
+        Inscription
     }
 
     private Kind kindOfInteractable = Kind.Unspecified;
@@ -52,6 +53,9 @@ public class Interactable : MonoBehaviour
                 Door door = GetComponent<Door>();
                 Debug.Log("Moving door...");
                 door.Move();
+                break;
+            case Kind.Inscription:
+                
                 break;
             default:
                 break;
