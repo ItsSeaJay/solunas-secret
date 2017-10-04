@@ -51,11 +51,13 @@ public class Interactable : MonoBehaviour
                 break;
             case Kind.Door:
                 Door door = GetComponent<Door>();
-                Debug.Log("Moving door...");
+
                 door.Move();
                 break;
             case Kind.Inscription:
-                
+                Inscription inscription = GetComponent<Inscription>();
+
+                inscription.Read();
                 break;
             default:
                 break;

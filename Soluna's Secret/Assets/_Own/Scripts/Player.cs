@@ -146,6 +146,18 @@ public class Player : MonoBehaviour
     } // End private void RefreshInteractableDictionary()
 
     // Accessors/Mutators()
+    public State CurrentState
+    {
+        get
+        {
+            return currentState;
+        }
+        set
+        {
+            currentState = value;
+        }
+    }
+
     public Transform FirstPersonCharacter
     {
         get

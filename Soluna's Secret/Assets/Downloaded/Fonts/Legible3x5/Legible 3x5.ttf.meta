@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 25aa6a9ed7e4bc242be67d4efbe98637
+timeCreated: 1507108750
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Legible 3x5
+  fontNames:
+  - Legible 3x5
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
