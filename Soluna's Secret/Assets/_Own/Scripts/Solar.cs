@@ -57,6 +57,15 @@ public class Solar : MonoBehaviour
         }
     }
 
+    void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "Light" &&
+            !lightsList.Contains(other.gameObject))
+        {
+            lightsList.Add(other.gameObject);
+        }
+    }
+
     void OnTriggerExit(Collider other)
     {
         if (other.tag == "Light")

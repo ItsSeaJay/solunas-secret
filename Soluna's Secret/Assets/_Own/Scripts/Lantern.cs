@@ -51,6 +51,7 @@ public class Lantern : MonoBehaviour
         pickup = GetComponent<Pickup>();
 
         flickeringLight.enabled = isLit;
+        lightCollider.enabled = isLit;
 
         if (isLit)
         {
@@ -59,9 +60,6 @@ public class Lantern : MonoBehaviour
 
             targetProjectorOrthographicSize = lanternProjectorOrthographicSizeMax;
             lanternProjector.orthographicSize = targetProjectorOrthographicSize;
-
-            targetColliderRadius = lightColliderRadiusMax;
-            lanternProjector.orthographicSize = targetProjectorOrthographicSize;
         } // End if (isLit)
         else
         {
@@ -69,9 +67,6 @@ public class Lantern : MonoBehaviour
             lanternLight.range = targetProjectorOrthographicSize;
 
             targetProjectorOrthographicSize = 0.0f;
-            lanternProjector.orthographicSize = targetProjectorOrthographicSize;
-
-            targetColliderRadius = 0.0f;
             lanternProjector.orthographicSize = targetProjectorOrthographicSize;
         } // End else (isLit)
 	} // End void Start ()
