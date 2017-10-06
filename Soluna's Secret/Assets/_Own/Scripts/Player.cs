@@ -36,7 +36,19 @@ public class Player : MonoBehaviour
     private Dictionary<string, Interactable> interactableDictionary = new Dictionary<string, Interactable>();
     private GameObject heldItem;
     private State currentState = State.Normal;
+    private static Player instance;
     private RaycastHit forwardLookHit; // Used for detecting line-of-sight with objects
+
+    void Awake()
+    {
+        // Ensure there is only one instance of the player in a given scene
+        if (instance != null)
+        {
+            Destroy(gameObject);
+        } // End if (instance != null)
+
+        instance = this;
+    }
 
     void Start ()
 	{
@@ -64,6 +76,7 @@ public class Player : MonoBehaviour
                 firstPersonController.MouseLookEnabled = true;
                 break;
             case State.Frozen:
+                HandleLooking();
                 Cursor.lockState = CursorLockMode.Locked;
                 firstPersonController.MouseLookEnabled = false;
                 break;
@@ -155,6 +168,14 @@ public class Player : MonoBehaviour
         set
         {
             currentState = value;
+        }
+    }
+
+    public static Player Instance
+    {
+        get
+        {
+            return instance;
         }
     }
 
