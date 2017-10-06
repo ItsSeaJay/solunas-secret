@@ -274,6 +274,7 @@ MonoBehaviour:
   lanternProjector: {fileID: 119677456104840920}
   lanternLight: {fileID: 108231526045280548}
   lightCollider: {fileID: 136349783466331882}
+  flickeringLight: {fileID: 114436312108518382}
 --- !u!114 &114761813867977178
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -285,7 +286,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c33b2b2dc46a7794c9e0bd978b2e6c39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
 --- !u!119 &119677456104840920
 Projector:
   m_ObjectHideFlags: 1

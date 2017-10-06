@@ -1405,6 +1405,16 @@ Prefab:
       propertyPath: m_Name
       value: Lantern (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 114589639544652910, guid: 9f412b772d2e4c94388929962c43e1e0,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114436312108518382, guid: 9f412b772d2e4c94388929962c43e1e0,
+        type: 2}
+      propertyPath: maxRange
+      value: 3.66
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9f412b772d2e4c94388929962c43e1e0, type: 2}
   m_IsPrefabParent: 0

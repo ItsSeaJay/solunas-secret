@@ -12,6 +12,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+// Requirement(s)
+[RequireComponent(typeof(Interactable))]
+[RequireComponent(typeof(FlickeringLight))]
+
 public class Lantern : MonoBehaviour
 {
     [SerializeField]
@@ -20,10 +25,13 @@ public class Lantern : MonoBehaviour
     private Light     lanternLight;
     [SerializeField]
     private Collider  lightCollider;
+    [SerializeField]
+    private FlickeringLight flickeringLight;
 
     private Pickup pickup;
 
     private bool isLit = true;
+    private float target;
 
 	void Start ()
 	{
@@ -38,18 +46,21 @@ public class Lantern : MonoBehaviour
 	{
 		if (pickup.Held)
         {
-            if (Input.GetButtonDown("Lantern"))
+            if (Input.GetButtonDown("Lantern") &&
+                Player.Instance.CurrentState != Player.State.Frozen)
             {
                 Toggle();
             } // End if (Input.GetKeyDown("Lantern"))
         } // End if (pickup.Held)
-	} // End void Update ()
+    } // End void Update ()
 
     private void Toggle()
     {
         isLit = !isLit;
+
         lanternProjector.enabled = !lanternProjector.enabled;
         lanternLight.enabled = !lanternLight.enabled;
         lightCollider.enabled = !lightCollider.enabled;
+        flickeringLight.enabled = !flickeringLight.enabled;
     } // End private void Toggle()
 } // End public class Lantern : MonoBehaviour
