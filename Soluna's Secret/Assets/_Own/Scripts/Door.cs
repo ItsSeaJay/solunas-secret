@@ -35,6 +35,11 @@ public class Door : MonoBehaviour
 
         Debug.Assert(animator.runtimeAnimatorController != null, "Door " + name + ' ' + GetInstanceID().ToString() + " requires an animator controller to work.");
 
+        if (tag != "Interactable")
+        {
+            tag = "Interactable";
+        }
+
         if (open)
         {
             // The door is open
@@ -50,24 +55,10 @@ public class Door : MonoBehaviour
         interactable.KindOfInteractable = Interactable.Kind.Door;
     } // End void Start ()
 
-	void Update ()
-	{
-		if (!locked)
-        {
-            tag = "Interactable";
-        }
-        else
-        {
-            tag = "Untagged";
-        }
-	} // End void Update ()
-
     public void Move ()
     {
-        Debug.Log("Moving Door...");
         if (!locked)
         {
-            Debug.Log("That door is unlocked, opening...");
             if (open)
             {
                 Close();
@@ -79,7 +70,7 @@ public class Door : MonoBehaviour
         } // End if (!locked)
         else
         {
-
+            Player.Instance.Subs.SetSubtitle("Locked.");
         } // End if (!locked)
     } // End public void Move ()
 

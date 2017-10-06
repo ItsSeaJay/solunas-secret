@@ -17,9 +17,6 @@ using UnityEngine;
 
 public class Pickup : MonoBehaviour
 {
-    [SerializeField]
-    private Player player;
-
     private Interactable interactable;
     private bool held = false;
 
@@ -27,16 +24,11 @@ public class Pickup : MonoBehaviour
 	{
         interactable = GetComponent<Interactable>();
         interactable.KindOfInteractable = Interactable.Kind.Pickup;
-
-		if (player == null)
-        {
-            player = GameObject.Find("Player").GetComponent<Player>();
-        } // End if (player == null)
 	} // End void Start ()
 
 	void Update ()
 	{
-		if (transform.parent == player.Hand.transform)
+		if (transform.parent == Player.Instance.Hand.transform)
         {
             held = true;
         } // if (transform.parent == player.Hand.transform)
@@ -49,15 +41,19 @@ public class Pickup : MonoBehaviour
     public void Obtain ()
     {
         // Only if the player isn't holding anything
-        if (player.HeldItem == null)
+        if (Player.Instance.HeldItem == null)
         {
             // Allow the player to pick it up
-            transform.parent = player.Hand.transform;
+            transform.parent = Player.Instance.Hand.transform;
             transform.localPosition = Vector3.zero;
             transform.localEulerAngles = Vector3.zero;
 
-            player.HeldItem = this.gameObject;
+            Player.Instance.HeldItem = this.gameObject;
         } // End if (player.Hand.transform.childCount == 0)
+        else
+        {
+            Player.Instance.Subs.SetSubtitle("Hands are full.");
+        }
     } // End public void Obtain ()
 
     public bool Held
