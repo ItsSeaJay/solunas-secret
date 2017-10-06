@@ -14,12 +14,10 @@ using UnityEngine;
 
 // Requirement(s)
 [RequireComponent(typeof(Interactable))]
-[RequireComponent(typeof(FlickeringLight))]
+[RequireComponent(typeof(Pickup))]
 
 public class Lantern : MonoBehaviour
 {
-    public AnimationCurve curve;
-
     [SerializeField]
     private Projector       lanternProjector;
     [SerializeField]        
@@ -28,13 +26,21 @@ public class Lantern : MonoBehaviour
     private Collider        lightCollider;
     [SerializeField]
     private FlickeringLight flickeringLight;
+    [SerializeField]
+    private AnimationCurve  onCurve, offCurve;
+    [SerializeField]
+    private float transitionSpeed = 4.0f;
+    [SerializeField]
+    private float lanternLightRangeMax = 3.66f,
+                  lanternProjectorOrthographicSizeMax = 4.0f,
+                  lightColliderRadiusMax = 18.5f;
 
     private Pickup pickup;
 
     private bool isLit = true;
-    private float targetLightRange;
-    private float targetProjectorOrthographicSize;
-    private float speed = 4.0f;
+    private float targetLightRange,
+                  targetProjectorOrthographicSize,
+                  targetColliderRadius;
 
 	void Start ()
 	{
@@ -44,14 +50,17 @@ public class Lantern : MonoBehaviour
 
         pickup = GetComponent<Pickup>();
 
-        flickeringLight.enabled = false;
+        flickeringLight.enabled = isLit;
 
         if (isLit)
         {
-            targetLightRange = 3.66f;
+            targetLightRange = lanternLightRangeMax;
             lanternLight.range = targetLightRange;
 
-            targetProjectorOrthographicSize = 4.0f;
+            targetProjectorOrthographicSize = lanternProjectorOrthographicSizeMax;
+            lanternProjector.orthographicSize = targetProjectorOrthographicSize;
+
+            targetColliderRadius = lightColliderRadiusMax;
             lanternProjector.orthographicSize = targetProjectorOrthographicSize;
         } // End if (isLit)
         else
@@ -61,24 +70,15 @@ public class Lantern : MonoBehaviour
 
             targetProjectorOrthographicSize = 0.0f;
             lanternProjector.orthographicSize = targetProjectorOrthographicSize;
+
+            targetColliderRadius = 0.0f;
+            lanternProjector.orthographicSize = targetProjectorOrthographicSize;
         } // End else (isLit)
 	} // End void Start ()
 
 	void Update ()
 	{
-        lanternLight.range = Mathf.Lerp(lanternLight.range, targetLightRange, Time.deltaTime * speed);
-        lanternProjector.orthographicSize = Mathf.Lerp(lanternProjector.orthographicSize, targetProjectorOrthographicSize, Time.deltaTime * speed);
-
-        if (isLit)
-        {
-            targetLightRange = 3.66f;
-            targetProjectorOrthographicSize = 4.0f;
-        } // End if (isLit)
-        else
-        {
-            targetLightRange = 0.0f;
-            targetProjectorOrthographicSize = 0.0f;
-        } // End else (isLit)
+        LerpLanternLight();
 
         if (pickup.Held)
         {
@@ -90,13 +90,31 @@ public class Lantern : MonoBehaviour
         } // End if (pickup.Held)
     } // End void Update ()
 
+    void LerpLanternLight()
+    {
+        if (isLit)
+        {
+            targetLightRange = 3.66f;
+            targetProjectorOrthographicSize = 4.0f;
+
+            lanternLight.range = Mathf.Lerp(lanternLight.range, targetLightRange, onCurve.Evaluate(Time.deltaTime * transitionSpeed));
+            lanternProjector.orthographicSize = Mathf.Lerp(lanternProjector.orthographicSize, targetProjectorOrthographicSize, onCurve.Evaluate(Time.deltaTime * transitionSpeed));
+            
+        } // End if (isLit)
+        else
+        {
+            targetLightRange = 0.0f;
+            targetProjectorOrthographicSize = 0.0f;
+
+            lanternLight.range = Mathf.Lerp(lanternLight.range, targetLightRange, offCurve.Evaluate(Time.deltaTime * transitionSpeed));
+            lanternProjector.orthographicSize = Mathf.Lerp(lanternProjector.orthographicSize, targetProjectorOrthographicSize, offCurve.Evaluate(Time.deltaTime * transitionSpeed));
+        } // End else (isLit)
+    } // End void LerpLanternLight
+
     private void Toggle()
     {
         isLit = !isLit;
 
-        //lanternProjector.enabled = !lanternProjector.enabled;
-        //lanternLight.enabled = !lanternLight.enabled;
-        //lightCollider.enabled = !lightCollider.enabled;
-        //flickeringLight.enabled = !flickeringLight.enabled;
+        flickeringLight.enabled = !flickeringLight.enabled;
     } // End private void Toggle()
 } // End public class Lantern : MonoBehaviour
