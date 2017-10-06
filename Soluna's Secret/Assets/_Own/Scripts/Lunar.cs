@@ -58,6 +58,15 @@ public class Lunar : MonoBehaviour
         } // End if (other.tag == "Light")
     } // End void OnTriggerEnter(Collider other)
 
+    void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "Light" &&
+            !lightsList.Contains(other.gameObject))
+        {
+            lightsList.Add(other.gameObject);
+        } // End if (other.tag == "Light")
+    } // End void OnTriggerStay(Collider other)
+
     void OnTriggerExit(Collider other)
     {
         if (other.tag == "Light")
