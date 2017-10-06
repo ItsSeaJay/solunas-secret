@@ -96,7 +96,7 @@ public class Player : MonoBehaviour
                             reach,
                             layerMask))
         {
-            // Update Cursor
+            // Update Cursor when looking at an interactable object
             if (forwardLookHit.transform.tag == "Interactable")
             {
                 // We are looking at an interactable object

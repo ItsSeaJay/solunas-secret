@@ -47,8 +47,6 @@ public class Inscription : MonoBehaviour
     {
         Debug.Assert(canvas != null);
 
-        Debug.Log(GetInstanceID().ToString() + name + " message.Count " + message.Count);
-
         interactable = GetComponent<Interactable>();
         interactable.KindOfInteractable = Interactable.Kind.Inscription;
 
@@ -65,6 +63,8 @@ public class Inscription : MonoBehaviour
         displayTextMeshProUGUI.font = textMeshProSettings.font;
         displayTextMeshProUGUI.fontSize = 8;
         displayTextMeshProUGUI.alignment = TextAlignmentOptions.Bottom;
+
+        displayTextMeshProUGUI.spriteAsset = textMeshProSettings.cursor;
     } // End void Start ()
 
     void Update()
