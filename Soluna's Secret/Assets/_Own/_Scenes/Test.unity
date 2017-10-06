@@ -1718,12 +1718,6 @@ GameObject:
   m_PrefabParentObject: {fileID: 1818191169821770, guid: b608bad527c26b644aeed383ec4472c4,
     type: 2}
   m_PrefabInternal: {fileID: 164934774}
---- !u!114 &1842637639 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114436312108518382, guid: 9f412b772d2e4c94388929962c43e1e0,
-    type: 2}
-  m_PrefabInternal: {fileID: 1845278469}
-  m_Script: {fileID: 11500000, guid: 734c6bfcaae036f4a9af61014eb7b645, type: 3}
 --- !u!1001 &1845278469
 Prefab:
   m_ObjectHideFlags: 0
@@ -1761,48 +1755,6 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4544412430676270, guid: 9f412b772d2e4c94388929962c43e1e0, type: 2}
       propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114761813867977178, guid: 9f412b772d2e4c94388929962c43e1e0,
-        type: 2}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 731385362}
-    - target: {fileID: 108231526045280548, guid: 9f412b772d2e4c94388929962c43e1e0,
-        type: 2}
-      propertyPath: m_Flare
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 108231526045280548, guid: 9f412b772d2e4c94388929962c43e1e0,
-        type: 2}
-      propertyPath: m_DrawHalo
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 108231526045280548, guid: 9f412b772d2e4c94388929962c43e1e0,
-        type: 2}
-      propertyPath: m_RenderMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4157860567694854, guid: 9f412b772d2e4c94388929962c43e1e0, type: 2}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4713056056096546, guid: 9f412b772d2e4c94388929962c43e1e0, type: 2}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4911076574349892, guid: 9f412b772d2e4c94388929962c43e1e0, type: 2}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114589639544652910, guid: 9f412b772d2e4c94388929962c43e1e0,
-        type: 2}
-      propertyPath: flickeringLight
-      value: 
-      objectReference: {fileID: 1842637639}
-    - target: {fileID: 114436312108518382, guid: 9f412b772d2e4c94388929962c43e1e0,
-        type: 2}
-      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -23,7 +23,7 @@ public class Lantern : MonoBehaviour
     [SerializeField]        
     private Light           lanternLight;
     [SerializeField]        
-    private Collider        lightCollider;
+    private CapsuleCollider lightCollider;
     [SerializeField]
     private FlickeringLight flickeringLight;
     [SerializeField]
@@ -94,12 +94,11 @@ public class Lantern : MonoBehaviour
     {
         if (isLit)
         {
-            targetLightRange = 3.66f;
-            targetProjectorOrthographicSize = 4.0f;
+            targetLightRange = lanternLightRangeMax;
+            targetProjectorOrthographicSize = lanternProjectorOrthographicSizeMax;
 
             lanternLight.range = Mathf.Lerp(lanternLight.range, targetLightRange, onCurve.Evaluate(Time.deltaTime * transitionSpeed));
             lanternProjector.orthographicSize = Mathf.Lerp(lanternProjector.orthographicSize, targetProjectorOrthographicSize, onCurve.Evaluate(Time.deltaTime * transitionSpeed));
-            
         } // End if (isLit)
         else
         {
@@ -116,5 +115,6 @@ public class Lantern : MonoBehaviour
         isLit = !isLit;
 
         flickeringLight.enabled = !flickeringLight.enabled;
+        lightCollider.enabled = !lightCollider.enabled;
     } // End private void Toggle()
 } // End public class Lantern : MonoBehaviour
