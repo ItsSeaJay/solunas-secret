@@ -77,6 +77,10 @@ public class Door : MonoBehaviour
                 Open();
             } // End else (open)
         } // End if (!locked)
+        else
+        {
+
+        } // End if (!locked)
     } // End public void Move ()
 
     private void Open ()
