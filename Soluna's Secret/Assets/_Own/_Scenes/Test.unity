@@ -159,12 +159,37 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1719609945720654, guid: b608bad527c26b644aeed383ec4472c4, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114406791344437468, guid: b608bad527c26b644aeed383ec4472c4,
         type: 2}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114374379832386530, guid: b608bad527c26b644aeed383ec4472c4,
+        type: 2}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114374379832386530, guid: b608bad527c26b644aeed383ec4472c4,
+        type: 2}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114374379832386530, guid: b608bad527c26b644aeed383ec4472c4,
+        type: 2}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114374379832386530, guid: b608bad527c26b644aeed383ec4472c4,
+        type: 2}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114374379832386530, guid: b608bad527c26b644aeed383ec4472c4,
+        type: 2}
+      propertyPath: m_textInfo.pageCount
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b608bad527c26b644aeed383ec4472c4, type: 2}
@@ -740,7 +765,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72b4efc20b027e04fb9922f7e3472d66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  locked: 1
+  locked: 0
   open: 0
   transitionTime: 1
 --- !u!114 &815639962

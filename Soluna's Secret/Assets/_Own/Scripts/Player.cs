@@ -30,6 +30,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     private Transform hand;
     [SerializeField]
+
+    [SerializeField]
     [Tooltip("From how far away the player can interact with objects.")]
     private float reach = 4.0f;
 
