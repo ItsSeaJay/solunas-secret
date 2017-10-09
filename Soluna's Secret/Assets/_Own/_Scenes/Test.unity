@@ -1126,11 +1126,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   message:
-  - 'Something''s written here:'
-  - '"Hey, guys!"'
-  - '"Look at how much text we can fit onto the screen now."'
-  - '"Isn''t it neat?"'
-  - Unfortunately, you have no idea what a screen is.
+  - Stop.
+  - Gravity.
   canvas: {fileID: 1527969003}
   textMeshProSettings:
     padding: 0
