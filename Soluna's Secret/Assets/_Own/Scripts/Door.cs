@@ -19,6 +19,15 @@ using UnityEngine.Animations;
 
 public class Door : MonoBehaviour
 {
+    [System.Serializable]
+    public struct DoorSwitch
+    {
+        public Toggle toggle;
+        public bool listenFor;
+    } // End private struct DoorSwitch
+
+    [SerializeField]
+    private DoorSwitch[] doorSwitches;
     [SerializeField]
     private bool locked = false;
     [SerializeField]
@@ -61,8 +70,50 @@ public class Door : MonoBehaviour
 
     void Update()
     {
-        
+        if (locked)
+        {
+            CheckSwitches();
+        } // End if (locked)
     } // End void Update()
+
+    public void CheckSwitches()
+    {
+        int numberOfProperSwitches = 0;
+
+        for (int i = 0; i < doorSwitches.Length; i++)
+        {
+            // If the toggle in this position is what the door is asking for
+            if (doorSwitches[i].toggle.IsOn == doorSwitches[i].listenFor)
+            {
+                ++numberOfProperSwitches;
+            } // End if (doorSwitches[i].toggle.IsOn == doorSwitches[i].listenFor)
+        } // End for (int i = 0; i < doorSwitches.Length; i++)
+
+        if (numberOfProperSwitches == doorSwitches.Length)
+        {
+            if (locked)
+            {
+                Unlock();
+            }
+        } // End if (numberOfProperSwitches == doorSwitches.Length)
+        else
+        {
+            if (!locked)
+            {
+                Lock();
+            }
+        }
+    } // End public void CheckSwitches()
+
+    public void Lock()
+    {
+        locked = true;
+    } // End public void Lock()
+
+    public void Unlock()
+    {
+        locked = false;
+    } // End public void Unlock()
 
     public void Move ()
     {
@@ -96,4 +147,31 @@ public class Door : MonoBehaviour
         animator.CrossFade("Close", transitionTime);
         open = false;
     } // End if private void Open()
+
+    // Accessors/Mutators
+    public bool Locked
+    {
+        get
+        {
+            return locked;
+        }
+
+        set
+        {
+            locked = value;
+        }
+    }
+
+    public DoorSwitch[] DoorSwitches
+    {
+        get
+        {
+            return doorSwitches;
+        }
+
+        set
+        {
+            doorSwitches = value;
+        }
+    }
 } // End public class Door : MonoBehaviour

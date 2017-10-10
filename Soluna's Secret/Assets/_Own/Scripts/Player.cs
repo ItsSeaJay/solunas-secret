@@ -103,27 +103,7 @@ public class Player : MonoBehaviour
             {
                 // We are looking at an interactable object
                 // Alter the sprite of the crosshair accordingly
-                switch (interactableDictionary[forwardLookHit.transform.gameObject.GetInstanceID().ToString()].KindOfInteractable)
-                {
-                    case Interactable.Kind.Unspecified:
-                        crosshair.SetSprite("Interact");
-                        break;
-                    case Interactable.Kind.Pedastal:
-                        crosshair.SetSprite("Interact");
-                        break;
-                    case Interactable.Kind.Pickup:
-                        crosshair.SetSprite("Pickup");
-                        break;
-                    case Interactable.Kind.Door:
-                        crosshair.SetSprite("Interact");
-                        break;
-                    case Interactable.Kind.Inscription:
-                        crosshair.SetSprite("Look");
-                        break;
-                    default:
-                        crosshair.SetSprite("Default");
-                        break;
-                } // End if ()
+                SelectCrosshair();
 
                 if (Input.GetButtonDown("Interact"))
                 {
@@ -142,6 +122,34 @@ public class Player : MonoBehaviour
             crosshair.SetSprite("Default");
         } // End else (Physics.Raycast(firstPersonCharacter.position, ...
     } // End private void
+
+    public void SelectCrosshair()
+    {
+        switch (interactableDictionary[forwardLookHit.transform.gameObject.GetInstanceID().ToString()].KindOfInteractable)
+        {
+            case Interactable.Kind.Unspecified:
+                crosshair.SetSprite("Interact");
+                break;
+            case Interactable.Kind.Pedastal:
+                crosshair.SetSprite("Interact");
+                break;
+            case Interactable.Kind.Pickup:
+                crosshair.SetSprite("Pickup");
+                break;
+            case Interactable.Kind.Door:
+                crosshair.SetSprite("Interact");
+                break;
+            case Interactable.Kind.Toggle:
+                crosshair.SetSprite("Interact");
+                break;
+            case Interactable.Kind.Inscription:
+                crosshair.SetSprite("Look");
+                break;
+            default:
+                crosshair.SetSprite("Default");
+                break;
+        } // End switch(interactableDictionary[forwardLookHit.transform.gameObject.GetInstanceID().ToString()].KindOfInteractable)
+    } // End public void SelectCrosshair()
 
     private void Interact ()
     {

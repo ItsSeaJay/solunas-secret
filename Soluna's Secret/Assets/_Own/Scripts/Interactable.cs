@@ -20,6 +20,7 @@ public class Interactable : MonoBehaviour
         Pedastal,
         Pickup,
         Door,
+        Toggle,
         Inscription
     }
 
