@@ -16,21 +16,20 @@ using TMPro;
 public class Subtitles : MonoBehaviour
 {
     private TextMeshProUGUI subtitlesTextMeshProUGUI;
-
     private const float MAXDISPLAYTIME = 2.0f;
-
     private float displayTime = 0;
 
     void Start ()
 	{
         subtitlesTextMeshProUGUI = GetComponent<TextMeshProUGUI>();
+        subtitlesTextMeshProUGUI.text = "";
 	} // End void Start ()
 
 	void Update ()
 	{
         displayTime -= Time.deltaTime;
         displayTime = Mathf.Clamp(displayTime, 0, MAXDISPLAYTIME);
-
+        
         if (displayTime <= 0)
         {
             subtitlesTextMeshProUGUI.text = "";

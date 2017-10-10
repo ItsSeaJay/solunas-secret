@@ -59,6 +59,11 @@ public class Door : MonoBehaviour
         interactable.KindOfInteractable = Interactable.Kind.Door;
     } // End void Start ()
 
+    void Update()
+    {
+        
+    } // End void Update()
+
     public void Move ()
     {
         if (!locked)

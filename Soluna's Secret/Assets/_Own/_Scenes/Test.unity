@@ -162,6 +162,31 @@ Prefab:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114374379832386530, guid: b608bad527c26b644aeed383ec4472c4,
+        type: 2}
+      propertyPath: m_text
+      value: Subtitles
+      objectReference: {fileID: 0}
+    - target: {fileID: 114374379832386530, guid: b608bad527c26b644aeed383ec4472c4,
+        type: 2}
+      propertyPath: m_textInfo.characterCount
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 114374379832386530, guid: b608bad527c26b644aeed383ec4472c4,
+        type: 2}
+      propertyPath: m_textInfo.wordCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114374379832386530, guid: b608bad527c26b644aeed383ec4472c4,
+        type: 2}
+      propertyPath: m_textInfo.lineCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114374379832386530, guid: b608bad527c26b644aeed383ec4472c4,
+        type: 2}
+      propertyPath: m_textInfo.pageCount
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b608bad527c26b644aeed383ec4472c4, type: 2}
   m_IsPrefabParent: 0
@@ -736,7 +761,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72b4efc20b027e04fb9922f7e3472d66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  locked: 0
+  locked: 1
   open: 0
   transitionTime: 1
   lockedSubtitle: Won't budge.
