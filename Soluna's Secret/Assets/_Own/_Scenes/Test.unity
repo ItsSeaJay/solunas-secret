@@ -764,7 +764,7 @@ MonoBehaviour:
   locked: 1
   open: 0
   transitionTime: 1
-  lockedSubtitle: Won't budge.
+  lockedSubtitle: Locked.
 --- !u!114 &815639962
 MonoBehaviour:
   m_ObjectHideFlags: 0
