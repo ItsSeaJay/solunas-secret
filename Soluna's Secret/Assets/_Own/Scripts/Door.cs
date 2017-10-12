@@ -70,7 +70,8 @@ public class Door : MonoBehaviour
 
     void Update()
     {
-        if (locked)
+        if (locked &&
+            doorSwitches.Length > 0)
         {
             CheckSwitches();
         } // End if (locked)
