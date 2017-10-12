@@ -332,6 +332,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isOn: 0
+  transitionTime: 1
 --- !u!114 &248612192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -352,7 +353,7 @@ Animator:
   m_GameObject: {fileID: 248612190}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: 938d5aeda5cf19d4d80238e0b82605f8, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -418,7 +419,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 248612190}
   m_LocalRotation: {x: -0.70700663, y: -0, z: -0, w: 0.7072069}
-  m_LocalPosition: {x: 0, y: 1.066, z: 3}
+  m_LocalPosition: {x: 0, y: 1.066, z: 3.5}
   m_LocalScale: {x: 0.2, y: 1, z: 0.2}
   m_Children: []
   m_Father: {fileID: 0}
@@ -886,7 +887,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72b4efc20b027e04fb9922f7e3472d66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doorSwitches: []
+  doorSwitches:
+  - toggle: {fileID: 248612191}
+    listenFor: 1
   locked: 1
   open: 0
   transitionTime: 1
@@ -1964,6 +1967,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isOn: 0
+  transitionTime: 1
 --- !u!114 &2008371614
 MonoBehaviour:
   m_ObjectHideFlags: 0

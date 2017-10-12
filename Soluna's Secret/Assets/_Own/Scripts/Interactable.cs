@@ -60,6 +60,11 @@ public class Interactable : MonoBehaviour
 
                 inscription.Read();
                 break;
+            case Kind.Toggle:
+                Toggle toggle = GetComponent<Toggle>();
+
+                toggle.Move();
+                break;
             default:
                 break;
         } // End switch (kindOfInteractable)

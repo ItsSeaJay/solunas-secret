@@ -2,7 +2,7 @@
 /******************************************************************************
 * Product:     Soluna's Secret
 * Script:      Door
-* Description: The class that controls doors. These tcn be locked.
+* Description: The class that controls doors. These can be locked.
 * Author(s):   Callum John
 * Date:        9/21/2017 3:20:25 PM
 ******************************************************************************/
@@ -92,16 +92,16 @@ public class Door : MonoBehaviour
 
         if (numberOfProperSwitches == doorSwitches.Length)
         {
-            if (locked)
+            if (!open)
             {
-                Unlock();
+                Open();
             }
         } // End if (numberOfProperSwitches == doorSwitches.Length)
         else
         {
-            if (!locked)
+            if (open)
             {
-                Lock();
+                Close();
             }
         }
     } // End public void CheckSwitches()
