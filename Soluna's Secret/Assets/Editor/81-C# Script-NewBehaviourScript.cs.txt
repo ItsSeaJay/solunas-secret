@@ -1,0 +1,26 @@
+﻿
+/******************************************************************************
+* Product:     #PROJECTNAME#
+* Script:      #SCRIPTNAME#
+* Description: N/a
+* Author(s):   #SMARTDEVELOPERS#
+* Date:        #CREATIONDATE#
+******************************************************************************/
+
+// Libraries
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class #SCRIPTNAME# : MonoBehaviour 
+{
+	void Start () 
+	{
+		#NOTRIM#
+	} // End void Start ()
+	
+	void Update () 
+	{
+		#NOTRIM#
+	} // End void Update ()
+} // End public class #SCRIPTNAME# : MonoBehaviour
