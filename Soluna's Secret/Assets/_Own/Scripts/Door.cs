@@ -81,6 +81,8 @@ public class Door : MonoBehaviour
     {
         int numberOfProperSwitches = 0;
 
+        //Debug.Log("numberOfProperSwitches before loop " + numberOfProperSwitches);
+
         for (int i = 0; i < doorSwitches.Length; i++)
         {
             // If the toggle in this position is what the door is asking for
@@ -90,7 +92,9 @@ public class Door : MonoBehaviour
             } // End if (doorSwitches[i].toggle.IsOn == doorSwitches[i].listenFor)
         } // End for (int i = 0; i < doorSwitches.Length; i++)
 
-        Open();
+        //Debug.Log("numberOfProperSwitches after loop " + numberOfProperSwitches);
+        //Debug.Log("Length of doorSwitches " + numberOfProperSwitches);
+
 
         if (numberOfProperSwitches == doorSwitches.Length)
         {

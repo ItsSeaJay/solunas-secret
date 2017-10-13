@@ -26,13 +26,49 @@ public class Interactable : MonoBehaviour
 
     private Kind kindOfInteractable = Kind.Unspecified;
 
+    private Pedastal pedastal;
+    private Pickup pickup;
+    private Door door;
+    private Toggle toggle;
+    private Inscription inscription;
+
 	void Start ()
 	{
         if (tag != "Interactable")
         {
             tag = "Interactable";
-        }
+        } // End if (tag != "Interactable")
+
+        GetInteractableComponentFromKind();
     } // End void Start ()
+
+    private void GetInteractableComponentFromKind()
+    {
+        switch (kindOfInteractable)
+        {
+            case Kind.Unspecified:
+                Debug.LogWarning(name + 
+                                 GetInstanceID().ToString() +
+                                 "'s kindOfInteractable is unspecified!");
+                break;
+            case Kind.Pedastal:
+                pedastal = GetComponent<Pedastal>();
+                break;
+            case Kind.Pickup:
+                pickup = GetComponent<Pickup>();
+                break;
+            case Kind.Door:
+                door = GetComponent<Door>();
+                break;
+            case Kind.Toggle:
+                door = GetComponent<Door>();
+                break;
+            case Kind.Inscription:
+                break;
+            default:
+                break;
+        } // End switch (kindOfInteractable)
+    } // End private void GetInteractableComponentFromKind()
 
     public void HandleInteraction()
     {
@@ -41,8 +77,6 @@ public class Interactable : MonoBehaviour
             case Kind.Unspecified:
                 break;
             case Kind.Pedastal:
-                Pedastal pedastal = GetComponent<Pedastal>();
-
                 pedastal.Hold();
                 break;
             case Kind.Pickup:
