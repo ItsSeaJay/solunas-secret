@@ -187,7 +187,7 @@ Light:
   serializedVersion: 8
   m_Type: 2
   m_Color: {r: 1, g: 0.6827586, b: 0, a: 1}
-  m_Intensity: 1
+  m_Intensity: 3
   m_Range: 3.66
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -247,7 +247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minRange: 3
-  maxRange: 3.66
+  maxRange: 3.33
   flickerRate: 3
 --- !u!114 &114455163384782698
 MonoBehaviour:

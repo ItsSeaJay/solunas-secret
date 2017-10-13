@@ -16,26 +16,14 @@ using UnityEngine.Animations;
 // Requirement(s)
 [RequireComponent(typeof(Interactable))]
 [RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(Lock))]
 
 public class Door : MonoBehaviour
 {
-    [System.Serializable]
-    public struct DoorSwitch
-    {
-        public Toggle toggle;
-        public bool listenFor;
-    } // End private struct DoorSwitch
-
-    [SerializeField]
-    private DoorSwitch[] doorSwitches;
-    [SerializeField]
-    private bool locked = false;
     [SerializeField]
     private bool open = false;
     [SerializeField]
     private float transitionTime = 1.0f;
-    [SerializeField]
-    private string lockedSubtitle = "Locked";
 
     private Lock doorLock;
     private Animator animator;
@@ -64,6 +52,15 @@ public class Door : MonoBehaviour
             animator.Play("Closed");
         } // End else (open)
 
+        try
+        {
+            doorLock = GetComponent<Lock>();
+        } // End try
+        catch
+        {
+            doorLock = null;
+        } // End catch
+
         // Get a reference to the interactable and make it a door
         interactable = GetComponent<Interactable>();
         interactable.KindOfInteractable = Interactable.Kind.Door;
@@ -71,61 +68,12 @@ public class Door : MonoBehaviour
 
     void Update()
     {
-        if (locked &&
-            doorSwitches.Length > 0)
-        {
-            CheckSwitches();
-        } // End if (locked)
+
     } // End void Update()
-
-    public void CheckSwitches()
-    {
-        int numberOfProperSwitches = 0;
-
-        //Debug.Log("numberOfProperSwitches before loop " + numberOfProperSwitches);
-
-        for (int i = 0; i < doorSwitches.Length; i++)
-        {
-            // If the toggle in this position is what the door is asking for
-            if (doorSwitches[i].toggle.IsOn == doorSwitches[i].listenFor)
-            {
-                ++numberOfProperSwitches;
-            } // End if (doorSwitches[i].toggle.IsOn == doorSwitches[i].listenFor)
-        } // End for (int i = 0; i < doorSwitches.Length; i++)
-
-        //Debug.Log("numberOfProperSwitches after loop " + numberOfProperSwitches);
-        //Debug.Log("Length of doorSwitches " + numberOfProperSwitches);
-
-
-        if (numberOfProperSwitches == doorSwitches.Length)
-        {
-            if (!open)
-            {
-                Open();
-            }
-        } // End if (numberOfProperSwitches == doorSwitches.Length)
-        else
-        {
-            if (open)
-            {
-                Close();
-            }
-        }
-    } // End public void CheckSwitches()
-
-    public void Lock()
-    {
-        locked = true;
-    } // End public void Lock()
-
-    public void Unlock()
-    {
-        locked = false;
-    } // End public void Unlock()
 
     public void Move ()
     {
-        if (!locked)
+        if (!doorLock.Locked)
         {
             if (open)
             {
@@ -138,7 +86,7 @@ public class Door : MonoBehaviour
         } // End if (!locked)
         else
         {
-            Player.Instance.Subs.SetSubtitle(lockedSubtitle);
+            Player.Instance.Subs.SetSubtitle(doorLock.LockedSubtitle);
         } // End if (!locked)
     } // End public void Move ()
 
@@ -155,31 +103,4 @@ public class Door : MonoBehaviour
         animator.CrossFade("Close", transitionTime);
         open = false;
     } // End if private void Open()
-
-    // Accessors/Mutators
-    public bool Locked
-    {
-        get
-        {
-            return locked;
-        }
-
-        set
-        {
-            locked = value;
-        }
-    }
-
-    public DoorSwitch[] DoorSwitches
-    {
-        get
-        {
-            return doorSwitches;
-        }
-
-        set
-        {
-            doorSwitches = value;
-        }
-    }
 } // End public class Door : MonoBehaviour

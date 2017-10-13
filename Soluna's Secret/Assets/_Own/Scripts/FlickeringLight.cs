@@ -9,7 +9,11 @@ using UnityEngine;
 public class FlickeringLight : MonoBehaviour
 {
     [SerializeField]
-    private float minRange, maxRange, flickerRate;
+    private float minRange = 3.0f;
+    [SerializeField]
+    private float maxRange = 3.66f;
+    [SerializeField]
+    private float flickerRate = 3.0f;
 
     private Light lightToFlicker;
     private float rangeDifference;
@@ -43,7 +47,7 @@ public class FlickeringLight : MonoBehaviour
                     break;
                 default:
                     break;
-            }
-        }
+            } // End switch (lightToFlicker.type)
+        } // End if (lightToFlicker.enabled)
     } // End void Update ()
 } // End public class FlickeringLight

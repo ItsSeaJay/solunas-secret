@@ -204,6 +204,7 @@ GameObject:
   - component: {fileID: 187716647}
   - component: {fileID: 187716646}
   - component: {fileID: 187716645}
+  - component: {fileID: 187716652}
   m_Layer: 0
   m_Name: Test Door (1)
   m_TagString: Interactable
@@ -222,12 +223,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72b4efc20b027e04fb9922f7e3472d66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doorSwitches:
-  - toggle: {fileID: 248612191}
-    listenFor: 0
-  - toggle: {fileID: 1538361533}
-    listenFor: 0
-  locked: 1
   open: 0
   transitionTime: 1
   lockedSubtitle: Locked.
@@ -323,6 +318,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &187716652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 187716644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26913e974a730e643960975f27927ea9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locked: 0
 --- !u!1 &239257880
 GameObject:
   m_ObjectHideFlags: 0
@@ -1002,6 +1009,7 @@ GameObject:
   - component: {fileID: 815639963}
   - component: {fileID: 815639962}
   - component: {fileID: 815639961}
+  - component: {fileID: 815639968}
   m_Layer: 0
   m_Name: Test Door
   m_TagString: Interactable
@@ -1020,12 +1028,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72b4efc20b027e04fb9922f7e3472d66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doorSwitches:
-  - toggle: {fileID: 248612191}
-    listenFor: 0
-  - toggle: {fileID: 1538361533}
-    listenFor: 1
-  locked: 1
   open: 0
   transitionTime: 1
   lockedSubtitle: Locked.
@@ -1121,6 +1123,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &815639968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 815639960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26913e974a730e643960975f27927ea9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locked: 0
 --- !u!1 &908122151
 GameObject:
   m_ObjectHideFlags: 0
