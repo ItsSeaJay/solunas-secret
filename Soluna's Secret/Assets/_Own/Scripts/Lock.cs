@@ -20,9 +20,9 @@ public class Lock : MonoBehaviour
         public Toggle toggle;  // A reference to the toggle
         public bool listenFor; // Whether that toggle should be on or off
     } // End private struct DoorSwitch
-
-    [Tooltip("The Lock is 'locked' if this has more than zero values.")]
+    
     [SerializeField]
+    [Tooltip("The Lock is 'locked' if this has more than zero values.")]
     private UnlockCondition[] unlockConditions;
 
     [SerializeField]
