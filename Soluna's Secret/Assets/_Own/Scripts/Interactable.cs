@@ -35,18 +35,15 @@ public class Interactable : MonoBehaviour
 
 	void Start ()
 	{
-        if (tag != "Interactable")
-        {
-            tag = "Interactable";
-        } // End if (tag != "Interactable")
+        tag = "Interactable";
 
-        GetInteractableComponentFromKind();
-
-        // Why don't you update?
+        StartCoroutine(GetInteractableComponentFromKind());
     } // End void Start ()
 
-    private void GetInteractableComponentFromKind()
+    private IEnumerator GetInteractableComponentFromKind()
     {
+        yield return new WaitForSeconds(0.1f);
+
         switch (kindOfInteractable)
         {
             case Kind.Unspecified:
@@ -79,6 +76,7 @@ public class Interactable : MonoBehaviour
         switch (kindOfInteractable)
         {
             case Kind.Unspecified:
+                Debug.LogWarning("Player tried to interact with unspecified interactable.");
                 break;
             case Kind.Pedastal:
                 pedastal.Hold();

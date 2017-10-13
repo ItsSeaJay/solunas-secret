@@ -37,7 +37,6 @@ public class Inscription : MonoBehaviour
     private GameObject display;
     private TextMeshProUGUI displayTextMeshProUGUI;
 
-    private bool reading = false;
     private int currentMessageIndex = 0;
     private int numberOfInteractions = 0;
     private float bufferPosition = 0.0f;
@@ -93,11 +92,11 @@ public class Inscription : MonoBehaviour
             if (numberOfInteractions == 0)
             {
                 ++numberOfInteractions;
-            }
+            } // End if (numberOfInteractions == 0)
             else
             {
                 ++currentMessageIndex;
-            }
+            } // End else (numberOfInteractions == 0)
         } // End if (currentMessageIndex + 1 < message.Count)
         else
         {
