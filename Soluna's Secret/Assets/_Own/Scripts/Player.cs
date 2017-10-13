@@ -50,7 +50,7 @@ public class Player : MonoBehaviour
         } // End if (instance != null)
 
         instance = this;
-    }
+    } // End void Awake ()
 
     void Start ()
 	{
@@ -62,11 +62,11 @@ public class Player : MonoBehaviour
         try
         {
             heldItem = hand.transform.GetChild(0).gameObject;
-        }
+        } // End try
         catch
         {
             heldItem = null;
-        }
+        } // End catch
     } // End void Start ()
 
 	void Update ()
@@ -84,7 +84,7 @@ public class Player : MonoBehaviour
                 break;
             default:
                 break;
-        }
+        } // End switch(currentState)
 	} // End void Update ()
 
     private void HandleLooking()

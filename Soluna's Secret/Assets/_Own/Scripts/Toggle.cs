@@ -57,7 +57,7 @@ public class Toggle : MonoBehaviour
 
         isOn = !isOn;
 
-        Debug.Log("Toggle " + name + GetInstanceID().ToString() + " is " + isOn);
+        // Debug.Log("Toggle " + name + GetInstanceID().ToString() + " is " + isOn);
     } // End public void Move()
 
     public bool IsOn

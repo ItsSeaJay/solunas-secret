@@ -889,7 +889,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doorSwitches:
   - toggle: {fileID: 248612191}
-    listenFor: 1
+    listenFor: 0
   - toggle: {fileID: 1538361533}
     listenFor: 1
   locked: 1

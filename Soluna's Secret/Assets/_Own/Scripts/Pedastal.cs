@@ -40,11 +40,11 @@ public class Pedastal : MonoBehaviour
         try
         {
             heldItem = container.transform.GetChild(0).gameObject;
-        }
+        } // End try
         catch
         {
             heldItem = null;
-        }
+        } // End catch
 	} // End void Start ()
 
 	void Update ()
@@ -87,6 +87,6 @@ public class Pedastal : MonoBehaviour
         get
         {
             return full;
-        }
-    }
+        } // End get Full
+    } // End public bool Full
 } // End public class Pedastal : MonoBehaviour

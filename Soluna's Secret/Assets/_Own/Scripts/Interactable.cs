@@ -2,7 +2,7 @@
 /******************************************************************************
 * Product:     Soluna's Secret
 * Script:      Interactable
-* Description: N/a
+* Description: A 'redirection' class called when the player clicks on an interactable.
 * Author(s):   Callum John
 * Date:        9/14/2017 1:46:15 PM
 ******************************************************************************/
@@ -26,6 +26,7 @@ public class Interactable : MonoBehaviour
 
     private Kind kindOfInteractable = Kind.Unspecified;
 
+    // Private references to the specific kind of interactable
     private Pedastal pedastal;
     private Pickup pickup;
     private Door door;
@@ -40,6 +41,8 @@ public class Interactable : MonoBehaviour
         } // End if (tag != "Interactable")
 
         GetInteractableComponentFromKind();
+
+        // Why don't you update?
     } // End void Start ()
 
     private void GetInteractableComponentFromKind()
@@ -61,9 +64,10 @@ public class Interactable : MonoBehaviour
                 door = GetComponent<Door>();
                 break;
             case Kind.Toggle:
-                door = GetComponent<Door>();
+                toggle = GetComponent<Toggle>();
                 break;
             case Kind.Inscription:
+                inscription = GetComponent<Inscription>();
                 break;
             default:
                 break;
@@ -80,23 +84,15 @@ public class Interactable : MonoBehaviour
                 pedastal.Hold();
                 break;
             case Kind.Pickup:
-                Pickup pickup = GetComponent<Pickup>();
-
                 pickup.Obtain();
                 break;
             case Kind.Door:
-                Door door = GetComponent<Door>();
-
                 door.Move();
                 break;
             case Kind.Inscription:
-                Inscription inscription = GetComponent<Inscription>();
-
                 inscription.Read();
                 break;
             case Kind.Toggle:
-                Toggle toggle = GetComponent<Toggle>();
-
                 toggle.Move();
                 break;
             default:
@@ -110,10 +106,10 @@ public class Interactable : MonoBehaviour
         get
         {
             return kindOfInteractable;
-        }
+        } // End get
         set
         {
             kindOfInteractable = value;
-        }
-    }
+        } // End set
+    } // End public Kind KindOfInteractable
 } // End public class Interactable : MonoBehaviour

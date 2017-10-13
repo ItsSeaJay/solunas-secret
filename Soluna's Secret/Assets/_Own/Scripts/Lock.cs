@@ -1,10 +1,10 @@
 
 /******************************************************************************
 * Product:     Soluna's Secret
-* Script:      Switch
+* Script:      Lock
 * Description: N/a
 * Author(s):   Callum John
-* Date:        10/10/2017 2:07:39 PM
+* Date:        10/13/2017 12:00:27 PM
 ******************************************************************************/
 
 // Libraries
@@ -12,15 +12,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Switch : MonoBehaviour 
+public class Lock : MonoBehaviour
 {
-	void Start () 
+	void Start ()
 	{
 		
 	} // End void Start ()
-	
-	void Update () 
+
+	void Update ()
 	{
 		
 	} // End void Update ()
-} // End public class Switch : MonoBehaviour
+} // End public class Lock : MonoBehaviour

@@ -44,12 +44,17 @@ public class Crosshair : MonoBehaviour
         } // End foreach(CrosshairType crosshairType in crosshairTypesArray)
     } // End void Start ()
 
+    private void FixSpriteRectDimensions(string key)
+    {
+        // Maintain the proper dimensions of the source file
+        rectTransform.sizeDelta = new Vector2(crosshairTypesDictionary[key].rect.width,
+                                              crosshairTypesDictionary[key].rect.height);
+    } // End private void FixSpriteRectDimensions()
+
     public void SetSprite(string key)
     {
         image.sprite = crosshairTypesDictionary[key];
 
-        // Fix sprite rect dimensions
-        rectTransform.sizeDelta = new Vector2(crosshairTypesDictionary[key].rect.width,
-                                              crosshairTypesDictionary[key].rect.height);
+        FixSpriteRectDimensions(key);
     } // public void SetSprite (int index)
 } // End public class Crosshair : MonoBehaviour
