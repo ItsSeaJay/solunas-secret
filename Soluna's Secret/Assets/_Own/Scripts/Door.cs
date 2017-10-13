@@ -90,6 +90,8 @@ public class Door : MonoBehaviour
             } // End if (doorSwitches[i].toggle.IsOn == doorSwitches[i].listenFor)
         } // End for (int i = 0; i < doorSwitches.Length; i++)
 
+        Open();
+
         if (numberOfProperSwitches == doorSwitches.Length)
         {
             if (!open)
