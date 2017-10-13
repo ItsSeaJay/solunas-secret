@@ -2,7 +2,7 @@
 /******************************************************************************
 * Product:     Soluna's Secret
 * Script:      Lock
-* Description: N/a
+* Description: Can be placed alongside certain classes to prevent player interaction.
 * Author(s):   Callum John
 * Date:        10/13/2017 12:00:27 PM
 ******************************************************************************/
@@ -14,7 +14,20 @@ using UnityEngine;
 
 public class Lock : MonoBehaviour
 {
-	void Start ()
+    [System.Serializable]
+    public struct UnlockCondition
+    {
+        public Toggle toggle; // A reference to the toggle
+        public bool listenFor;
+    } // End private struct DoorSwitch
+
+    [Tooltip("The Lock is 'locked' if this has more than zero values.")]
+    private UnlockCondition[] unlockConditions;
+
+    [SerializeField]
+    private bool locked;
+
+    void Start ()
 	{
 		
 	} // End void Start ()
@@ -23,4 +36,17 @@ public class Lock : MonoBehaviour
 	{
 		
 	} // End void Update ()
+
+    // Accessors / Mutators
+    public UnlockCondition[] UnlockConditions
+    {
+        get
+        {
+            return unlockConditions;
+        } // End get
+        set
+        {
+            unlockConditions = value;
+        } // End set
+    } // End public UnlockCondition[] UnlockConditions
 } // End public class Lock : MonoBehaviour

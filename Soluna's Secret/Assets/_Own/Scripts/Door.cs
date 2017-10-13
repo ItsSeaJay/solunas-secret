@@ -37,6 +37,7 @@ public class Door : MonoBehaviour
     [SerializeField]
     private string lockedSubtitle = "Locked";
 
+    private Lock doorLock;
     private Animator animator;
     private Interactable interactable;
 
