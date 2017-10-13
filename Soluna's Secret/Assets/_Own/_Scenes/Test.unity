@@ -223,9 +223,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72b4efc20b027e04fb9922f7e3472d66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  open: 0
+  isOpen: 0
   transitionTime: 1
-  lockedSubtitle: Locked.
 --- !u!114 &187716646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -329,7 +328,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26913e974a730e643960975f27927ea9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  locked: 0
+  unlockConditions:
+  - toggle: {fileID: 1538361533}
+    listenFor: 0
+  - toggle: {fileID: 248612191}
+    listenFor: 0
+  locked: 1
+  lockedSubtitle: Locked
 --- !u!1 &239257880
 GameObject:
   m_ObjectHideFlags: 0
@@ -1028,9 +1033,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72b4efc20b027e04fb9922f7e3472d66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  open: 0
+  isOpen: 0
   transitionTime: 1
-  lockedSubtitle: Locked.
 --- !u!114 &815639962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1134,7 +1138,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26913e974a730e643960975f27927ea9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unlockConditions: []
   locked: 0
+  lockedSubtitle: Locked
 --- !u!1 &908122151
 GameObject:
   m_ObjectHideFlags: 0

@@ -21,7 +21,7 @@ using UnityEngine.Animations;
 public class Door : MonoBehaviour
 {
     [SerializeField]
-    private bool open = false;
+    private bool isOpen = false;
     [SerializeField]
     private float transitionTime = 1.0f;
 
@@ -41,11 +41,11 @@ public class Door : MonoBehaviour
         } // End if (tag == interactable)
 
         // Fix animation for when the game starts
-        if (open)
+        if (isOpen)
         {
             // The door is open
             animator.Play("Opened");
-        } // End if (open)
+        } // End if (isOpen)
         else
         {
             // The door is closed
@@ -66,23 +66,19 @@ public class Door : MonoBehaviour
         interactable.KindOfInteractable = Interactable.Kind.Door;
     } // End void Start ()
 
-    void Update()
-    {
-
-    } // End void Update()
-
+    // NOTE: This function is specifically for the player
     public void Move ()
     {
         if (!doorLock.Locked)
         {
-            if (open)
+            if (isOpen)
             {
                 Close();
-            } // End if (open)
+            } // End if (isOpen)
             else
             {
                 Open();
-            } // End else (open)
+            } // End else (isOpen)
         } // End if (!locked)
         else
         {
@@ -90,17 +86,26 @@ public class Door : MonoBehaviour
         } // End if (!locked)
     } // End public void Move ()
 
-    private void Open ()
+    public void Open ()
     {
         //Debug.Log("Opened door " + name + ' ' + GetInstanceID().ToString());
         animator.CrossFade("Open", transitionTime);
-        open = true;
+        isOpen = true;
     } // End if private void Open()
 
-    private void Close ()
+    public void Close ()
     {
         //Debug.Log("Closed door " + name + ' ' + GetInstanceID().ToString());
         animator.CrossFade("Close", transitionTime);
-        open = false;
-    } // End if private void Open()
+        isOpen = false;
+    } // End if private void Close()
+
+    // Accessor / Mutator
+    public bool IsOpen
+    {
+        get
+        {
+            return isOpen;
+        } // End get
+    } // End public book IsOpen
 } // End public class Door : MonoBehaviour

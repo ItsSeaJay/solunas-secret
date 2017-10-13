@@ -30,10 +30,19 @@ public class Lock : MonoBehaviour
     [SerializeField]
     private string lockedSubtitle = "Locked";
 
-    //void Start ()
-    //{
+    private Door door;
 
-    //} // End void Start ()
+    void Start()
+    {
+        try
+        {
+            door = GetComponent<Door>();
+        } // End try
+        catch
+        {
+            door = null;
+        } // End catch
+    } // End void Start ()
 
     void Update ()
 	{
@@ -57,6 +66,37 @@ public class Lock : MonoBehaviour
                 ++numberOfConditionsSatisfied;
             } // End if (unlockConditions[i].toggle.IsOn == unlockConditions[i].listenFor)
         } // End for (int i = 0; i < unlockConditions.Length; i++)
+
+        if (numberOfConditionsSatisfied == unlockConditions.Length)
+        {
+            //if (locked)
+            //{
+            //    Unlock();
+            //} // End if (locked)
+
+            if (door != null)
+            {
+                if (!door.IsOpen)
+                {
+                    door.Open();
+                } // End if (door.IsOpen)
+            } // End if (door != null)
+        } // End if (numberOfConditionsSatisfied == unlockConditions.Length)
+        else
+        {
+            //if (!locked)
+            //{
+            //    LockUp();
+            //} // End if (!locked)
+
+            if (door != null)
+            {
+                if (door.IsOpen)
+                {
+                    door.Close();
+                } // End if (door.IsOpen)
+            } // End if (door != null)
+        } // End else (numberOfConditionsSatisfied == unlockConditions.Length)
     } // End private void CheckUnlockConditions()
 
     public void LockUp()

@@ -246,7 +246,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 734c6bfcaae036f4a9af61014eb7b645, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minRange: 3
+  minRange: 2.66
   maxRange: 3.33
   flickerRate: 3
 --- !u!114 &114455163384782698
