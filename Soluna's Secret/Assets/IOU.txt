@@ -1,6 +1,0 @@
-Michael @wtfmig for his PixelBoy Shader
-Eluo for suggesting I use a projector and custom shader for my lighting
-LukeWaffel , for putting up with my own [waffle]
-Darkon, for his list-based collision system
-The Game Devloper's League in general?
-FontStruct and 66FFCC for the Legible 3x5 monospace font.
